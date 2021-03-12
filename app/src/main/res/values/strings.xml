@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Book</string>
+    <string name="name">Name</string>
+    <string name="author">Author</string>
+    <string name="page">Page</string>
+    <string name="price">Price</string>
+    <string name="date">Date</string>
+</resources>

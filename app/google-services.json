@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "845810395286",
+    "firebase_url": "https://books-d169b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "books-d169b",
+    "storage_bucket": "books-d169b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845810395286:android:e7f08f25f46e14f7ee3ab7",
+        "android_client_info": {
+          "package_name": "com.example.book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845810395286-b3bfejtbuhv60ipeu57afrug8se31d1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9nkrUDu9YrW-_nrC1CwQWlsK2intrxSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845810395286-b3bfejtbuhv60ipeu57afrug8se31d1v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "845810395286-4pq2jdh3omgaj31etrjiijgkgct4iu8n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "books"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
