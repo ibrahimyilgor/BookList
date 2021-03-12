@@ -74,11 +74,19 @@ public class NewBookActivity extends AppCompatActivity {
                 book.setPrice(bookprice.getText().toString());
 
                 String datee= "";
-                if(dp.getMonth()+1<10) {
-                    datee = String.valueOf(dp.getDayOfMonth()) + ".0" + String.valueOf(dp.getMonth() + 1) + "." + String.valueOf(dp.getYear());
+                String d;
+                if(dp.getDayOfMonth()<10) {
+                    d = "0"+String.valueOf(dp.getDayOfMonth());
                 }
                 else{
-                    datee = String.valueOf(dp.getDayOfMonth()) + "." + String.valueOf(dp.getMonth() + 1) + "." + String.valueOf(dp.getYear());
+                    d = String.valueOf(dp.getDayOfMonth());
+                }
+
+                if(dp.getMonth()+1<10) {
+                    datee = d + ".0" + String.valueOf(dp.getMonth() + 1) + "." + String.valueOf(dp.getYear());
+                }
+                else{
+                    datee = d + "." + String.valueOf(dp.getMonth() + 1) + "." + String.valueOf(dp.getYear());
                 }
                 book.setDate(datee);
 

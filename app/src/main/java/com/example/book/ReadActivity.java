@@ -24,7 +24,7 @@ public class ReadActivity extends AppCompatActivity {
     EditText page;
     Button minus,plus,save;
     DatePicker dp;
-    DatabaseReference reff;
+    DatabaseReference reff,reff2;
 
     Page p;
 
@@ -48,21 +48,30 @@ public class ReadActivity extends AppCompatActivity {
         String personId = getIntent().getStringExtra("personid");
 
         Calendar now = Calendar.getInstance();
+        reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
 
         dp.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String date;
-                monthOfYear+=1;
-                if(monthOfYear+1<10){
-                    date= String.valueOf(dayOfMonth)+"0"+String.valueOf(monthOfYear)+String.valueOf(year);
+                String day;
+                if(dp.getDayOfMonth()<10){
+                    day = "0"+ String.valueOf(dp.getDayOfMonth());
                 }
                 else{
-                    date= String.valueOf(dayOfMonth)+String.valueOf(monthOfYear)+String.valueOf(year);
+                    day = String.valueOf(dp.getDayOfMonth());
                 }
-                reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages").child(date);
+                monthOfYear+=1;
+                if(monthOfYear+1<10){
+                    date= day+"0"+String.valueOf(monthOfYear)+String.valueOf(year);
+                }
+                else{
+                    date= day+String.valueOf(monthOfYear)+String.valueOf(year);
+                }
+
                 Toast.makeText(ReadActivity.this, personId + " " + date, Toast.LENGTH_SHORT).show();
-               /* reff.addValueEventListener(new ValueEventListener() {
+                reff2 = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
+                /*reff2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot snapshot:dataSnapshot.getChildren()){
@@ -104,14 +113,21 @@ public class ReadActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String datee="";
                 String date2;
-
-                if(dp.getMonth()+1<10){
-                    date2= String.valueOf(dp.getDayOfMonth())+"0"+String.valueOf(dp.getMonth()+1)+String.valueOf(dp.getYear());
-                    datee= String.valueOf(dp.getDayOfMonth())+".0"+String.valueOf(dp.getMonth()+1)+"."+String.valueOf(dp.getYear());
+                String day;
+                if(dp.getDayOfMonth()<10){
+                    day = "0"+ String.valueOf(dp.getDayOfMonth());
                 }
                 else{
-                    date2= String.valueOf(dp.getDayOfMonth())+String.valueOf(dp.getMonth()+1)+String.valueOf(dp.getYear());
-                    datee= String.valueOf(dp.getDayOfMonth())+"."+String.valueOf(dp.getMonth()+1)+"."+String.valueOf(dp.getYear());
+                    day = String.valueOf(dp.getDayOfMonth());
+                }
+
+                if(dp.getMonth()+1<10){
+                    date2= day+"0"+String.valueOf(dp.getMonth()+1)+String.valueOf(dp.getYear());
+                    datee= day+".0"+String.valueOf(dp.getMonth()+1)+"."+String.valueOf(dp.getYear());
+                }
+                else{
+                    date2= day+String.valueOf(dp.getMonth()+1)+String.valueOf(dp.getYear());
+                    datee= day+"."+String.valueOf(dp.getMonth()+1)+"."+String.valueOf(dp.getYear());
                 }
                 p.setDate(datee);
                 p.setPage(page.getText().toString());
@@ -126,6 +142,5 @@ public class ReadActivity extends AppCompatActivity {
             }
         });
         //tarih degistiginde o tarihin page verisi cekilsin.
-        //gun 10dan kucukse basina 0 konulsun.
     }
 }
