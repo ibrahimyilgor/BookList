@@ -24,6 +24,12 @@ public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     Button button,books,newbook,read;
     TextView textView;
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -57,7 +63,7 @@ public class SecondActivity extends AppCompatActivity {
         read.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Read();
+                Read(textView.getText().toString());
             }
         });
 
@@ -85,6 +91,8 @@ public class SecondActivity extends AppCompatActivity {
 
             textView.setText(personId);
         }
+
+
     }
     private void signOut() {
         mGoogleSignInClient.signOut()
@@ -103,8 +111,9 @@ public class SecondActivity extends AppCompatActivity {
         startActivityForResult(intent2,0);
     }
 
-    private void Read() {
+    private void Read(String personId) {
         Intent intent2 = new Intent(this,ReadActivity.class);
+        intent2.putExtra("personid", personId);
         startActivityForResult(intent2,0);
     }
 

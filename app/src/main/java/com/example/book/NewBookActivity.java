@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +37,7 @@ public class NewBookActivity extends AppCompatActivity {
         bookpage = findViewById(R.id.bookpage);
         bookprice = findViewById(R.id.bookprice);
         bookdate = findViewById(R.id.bookdate);
-        dp = findViewById(R.id.datepicker);
+        dp = findViewById(R.id.dp2);
 
         bookname.setText("");
         bookauthor.setText("");
@@ -52,7 +51,7 @@ public class NewBookActivity extends AppCompatActivity {
 
         String personId = getIntent().getStringExtra("personid");
 
-        reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId);
+        reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Books");
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
