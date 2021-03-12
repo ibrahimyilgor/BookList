@@ -48,11 +48,17 @@ public class SecondActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
         button.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
                     // ...
                     case R.id.button:
+                        textView.setText("SignedOut");
+                        newbook.setEnabled(false);
+                        books.setEnabled(false);
+                        read.setEnabled(false);
+                        finish();
                         signOut();
                         break;
                     // ...
@@ -70,7 +76,7 @@ public class SecondActivity extends AppCompatActivity {
         books.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Books();
+                Books(textView.getText().toString());
             }
         });
         newbook.setOnClickListener(new View.OnClickListener(){
@@ -100,14 +106,13 @@ public class SecondActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(SecondActivity.this,"Signed Out Successfully.",Toast.LENGTH_LONG).show();
-                        textView.setText("SignedOut");
-                        finish();
                     }
                 });
     }
 
-    private void Books() {
+    private void Books(String personId) {
         Intent intent2 = new Intent(this,BooksActivity.class);
+        intent2.putExtra("personid", personId);
         startActivityForResult(intent2,0);
     }
 
