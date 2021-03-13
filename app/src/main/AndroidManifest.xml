@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Book">
-        <activity android:name=".ReadActivity"></activity>
+        <activity android:name=".EditActivity"></activity>
+        <activity android:name=".ReadActivity" />
         <activity android:name=".NewBookActivity" />
         <activity android:name=".BooksActivity" />
         <activity android:name=".SecondActivity" />

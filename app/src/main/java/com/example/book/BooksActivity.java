@@ -3,8 +3,13 @@ package com.example.book;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,7 +41,7 @@ public class BooksActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    list.add("Name: "+snapshot.child("name").getValue().toString() + " Author: "+snapshot.child("author").getValue().toString() + " Page: "+snapshot.child("page").getValue().toString() + " Price: "+snapshot.child("price").getValue().toString() + " Date: "+snapshot.child("date").getValue().toString());
+                    list.add("Id: "+snapshot.child("id").getValue().toString()+" Name: "+snapshot.child("name").getValue().toString() + " Author: "+snapshot.child("author").getValue().toString() + " Page: "+snapshot.child("page").getValue().toString() + " Price: "+snapshot.child("price").getValue().toString() + " Date: "+snapshot.child("date").getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -46,5 +51,25 @@ public class BooksActivity extends AppCompatActivity {
 
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition     = position;
+                Object listItem = listView.getItemAtPosition(position);
+               // Toast.makeText(BooksActivity.this, String.valueOf(listItem), Toast.LENGTH_SHORT).show();
+                Edit(String.valueOf(listItem));
+            }
+        });
+    }
+
+    private void Edit(String info){
+        Intent intent = new Intent(this,EditActivity.class);
+        intent.putExtra("info", info);
+        startActivityForResult(intent,0);
     }
 }

@@ -7,6 +7,15 @@ public class Book {
     private String page;
     private String price;
     private String date;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAuthor() {
         return author;

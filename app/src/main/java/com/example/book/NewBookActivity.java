@@ -36,7 +36,6 @@ public class NewBookActivity extends AppCompatActivity {
         bookauthor = findViewById(R.id.bookauthor);
         bookpage = findViewById(R.id.bookpage);
         bookprice = findViewById(R.id.bookprice);
-        bookdate = findViewById(R.id.bookdate);
         dp = findViewById(R.id.dp2);
 
         bookname.setText("");
@@ -72,6 +71,7 @@ public class NewBookActivity extends AppCompatActivity {
                 book.setAuthor(bookauthor.getText().toString());
                 book.setPage(bookpage.getText().toString());
                 book.setPrice(bookprice.getText().toString());
+                book.setId(String.valueOf(maxid+1));
 
                 String datee= "";
                 String d;
