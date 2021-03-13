@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
+
 
 public class EditActivity extends AppCompatActivity {
     TextView t11,t12,t13,t14,t15;
@@ -19,6 +23,9 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+
+        Book book;
+        book = new Book();
 
         t11 = findViewById(R.id.t11);
         t12 = findViewById(R.id.t12);
@@ -39,5 +46,15 @@ public class EditActivity extends AppCompatActivity {
         String info = getIntent().getStringExtra("info");
 
         Toast.makeText(EditActivity.this, info, Toast.LENGTH_SHORT).show();
+
+        String splitted[] =info.split(":");
+        bookname.setText(splitted[1]);
+        bookauthor.setText(splitted[2]);
+        bookpage.setText(splitted[3]);
+        bookprice.setText(splitted[4]);
+
+        String datesplitted[] =splitted[5].split("\\.");
+        //UPDATE THE DATE OF BOOK
+
     }
 }

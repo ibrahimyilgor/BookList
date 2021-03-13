@@ -20,7 +20,7 @@ import java.util.Calendar;
 
 public class NewBookActivity extends AppCompatActivity {
 
-    EditText bookname,bookauthor,bookpage,bookprice,bookdate;
+    EditText bookname,bookauthor,bookpage,bookprice;
     Button add;
     Book book;
     DatabaseReference reff;
@@ -42,7 +42,6 @@ public class NewBookActivity extends AppCompatActivity {
         bookauthor.setText("");
         bookpage.setText("");
         bookprice.setText("");
-        bookdate.setText("");
 
         add = findViewById(R.id.add);
 
@@ -96,7 +95,6 @@ public class NewBookActivity extends AppCompatActivity {
                 bookauthor.setText("");
                 bookpage.setText("");
                 bookprice.setText("");
-                bookdate.setText("");
                 Calendar now = Calendar.getInstance();
                 dp.init(now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH),null);
 
@@ -111,6 +109,5 @@ public class NewBookActivity extends AppCompatActivity {
         bookauthor.setText("");
         bookpage.setText("");
         bookprice.setText("");
-        bookdate.setText("");
     }
 }

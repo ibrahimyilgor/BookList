@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BooksActivity extends AppCompatActivity {
     ListView listView;
@@ -35,6 +36,8 @@ public class BooksActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.list_item,list);
         listView.setAdapter(adapter);
 
+        List<String> dynamic = new ArrayList<String>();
+
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Books");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -42,6 +45,7 @@ public class BooksActivity extends AppCompatActivity {
                 list.clear();
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     list.add("Id: "+snapshot.child("id").getValue().toString()+" Name: "+snapshot.child("name").getValue().toString() + " Author: "+snapshot.child("author").getValue().toString() + " Page: "+snapshot.child("page").getValue().toString() + " Price: "+snapshot.child("price").getValue().toString() + " Date: "+snapshot.child("date").getValue().toString());
+                    dynamic.add(snapshot.child("id").getValue().toString()+":"+snapshot.child("name").getValue().toString() + ":"+snapshot.child("author").getValue().toString() + ":"+snapshot.child("page").getValue().toString() + ":"+snapshot.child("price").getValue().toString() + ":"+snapshot.child("date").getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -62,7 +66,7 @@ public class BooksActivity extends AppCompatActivity {
                 int itemPosition     = position;
                 Object listItem = listView.getItemAtPosition(position);
                // Toast.makeText(BooksActivity.this, String.valueOf(listItem), Toast.LENGTH_SHORT).show();
-                Edit(String.valueOf(listItem));
+                Edit(dynamic.get(position));
             }
         });
     }
