@@ -37,6 +37,8 @@ public class NewBookActivity extends AppCompatActivity {
         bookpage = findViewById(R.id.bookpage);
         bookprice = findViewById(R.id.bookprice);
         dp = findViewById(R.id.dp2);
+        dp.setDescendantFocusability(DatePicker.FOCUS_BLOCK_DESCENDANTS);
+
 
         bookname.setText("");
         bookauthor.setText("");

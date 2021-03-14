@@ -70,21 +70,25 @@ public class ReadActivity extends AppCompatActivity {
                 }
 
                 Toast.makeText(ReadActivity.this, personId + " " + date, Toast.LENGTH_SHORT).show();
-                reff2 = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
-                /*reff2.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                            page.setText(snapshot.child("page").getValue().toString());
+/*
+                reff2 = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages").child(date);
+                    reff2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                Toast.makeText(ReadActivity.this, "HELLO", Toast.LENGTH_SHORT).show();
+                                if(!dataSnapshot.child("Users").child(personId).child("Pages").child(date).exists()){
+                                    page.setText(snapshot.child("page").getValue().toString());
+                                }
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });*/
-
+                        }
+                    });
+*/
                // Toast.makeText(ReadActivity.this," You are changed date is : "+dayOfMonth +" -  "+monthOfYear+ " - "+year,Toast.LENGTH_LONG).show();
             }
         });

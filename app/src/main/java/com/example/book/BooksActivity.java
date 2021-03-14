@@ -24,13 +24,15 @@ import java.util.List;
 
 public class BooksActivity extends AppCompatActivity {
     ListView listView;
+    String personId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
 
+        personId = getIntent().getStringExtra("personid");
+
         listView = findViewById(R.id.listview);
-        String personId = getIntent().getStringExtra("personid");
 
         ArrayList<String> list = new ArrayList<>();
         ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.list_item,list);
@@ -74,6 +76,7 @@ public class BooksActivity extends AppCompatActivity {
     private void Edit(String info){
         Intent intent = new Intent(this,EditActivity.class);
         intent.putExtra("info", info);
+        intent.putExtra("personid",personId);
         startActivityForResult(intent,0);
     }
 }
