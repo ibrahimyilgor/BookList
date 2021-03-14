@@ -59,8 +59,6 @@ public class EditActivity extends AppCompatActivity {
         delete = findViewById(R.id.delete);
 
 
-        Toast.makeText(EditActivity.this, info, Toast.LENGTH_SHORT).show();
-
         String splitted[] =info.split(":");
         bookname.setText(splitted[1]);
         bookauthor.setText(splitted[2]);
@@ -137,6 +135,5 @@ public class EditActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-
     }
 }
