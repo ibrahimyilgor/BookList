@@ -3,6 +3,8 @@ package com.example.book;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class ReadActivity extends AppCompatActivity {
     EditText page;
@@ -52,46 +55,7 @@ public class ReadActivity extends AppCompatActivity {
         reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
 
         getPage(personId);
-/*
-        String date;
-        String day;
-        Integer monthOfYear = dp.getMonth();
-        Integer year = dp.getYear();
-        if(dp.getDayOfMonth()<10){
-            day = "0"+ String.valueOf(dp.getDayOfMonth());
-        }
-        else{
-            day = String.valueOf(dp.getDayOfMonth());
-        }
-        monthOfYear+=1;
-        if(monthOfYear+1<10){
-            date= day+"0"+String.valueOf(monthOfYear)+String.valueOf(year);
-        }
-        else{
-            date= day+String.valueOf(monthOfYear)+String.valueOf(year);
-        }
 
-        reff3 = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
-        reff3.orderByKey().equalTo(date).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.exists()) {
-                    //Key exists
-                    page.setText(dataSnapshot.child(date).child("page").getValue().toString());
-                } else {
-                    page.setText("0");
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-*/
         dp.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -224,6 +188,4 @@ public class ReadActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
