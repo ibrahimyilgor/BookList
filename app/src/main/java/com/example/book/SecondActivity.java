@@ -7,8 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +27,8 @@ import com.google.android.gms.tasks.Task;
 
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
-    Button button,books,newbook,read;
-    TextView textView;
+    ImageButton button,newbook,books,read;
+    TextView textView,stringnewbook,stringbooks,stringread,stringsignout;
     AdView ad;
 
     @Override
@@ -55,6 +54,11 @@ public class SecondActivity extends AppCompatActivity {
         adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
         ad.loadAd(adRequest);
+
+        stringnewbook = findViewById(R.id.stringnewbook);
+        stringbooks = findViewById(R.id.stringbooks);
+        stringread = findViewById(R.id.stringread);
+        stringsignout = findViewById(R.id.stringsignout);
 
         textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);

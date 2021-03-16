@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseError;
@@ -26,9 +28,10 @@ import java.util.Date;
 
 public class ReadActivity extends AppCompatActivity {
     EditText page;
-    Button minus,plus,save;
+    ImageButton minus,plus,save;
     DatePicker dp;
     DatabaseReference reff,reff2,reff3;
+    TextView t2,t3,t4;
 
     Page p;
 
@@ -46,6 +49,10 @@ public class ReadActivity extends AppCompatActivity {
         plus = findViewById(R.id.plus);
         save = findViewById(R.id.save);
         dp = findViewById(R.id.dp2);
+
+        t2 = findViewById(R.id.textView2);
+        t3 = findViewById(R.id.textView3);
+        t4 = findViewById(R.id.textView4);
 
         p = new Page();
 

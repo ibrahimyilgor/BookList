@@ -4,66 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#112d4e"
     tools:context=".ReadActivity">
 
     <DatePicker
         android:id="@+id/dp2"
-        android:layout_width="234dp"
-        android:layout_height="150dp"
+        android:layout_width="288dp"
+        android:layout_height="217dp"
+        android:backgroundTint="#FFFFFF"
+        android:calendarTextColor="#7C0A0A"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
+        android:dayOfWeekBackground="#FFFFFF"
+        android:theme="@style/MyDatePicker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <EditText
         android:id="@+id/page"
-        android:layout_width="121dp"
-        android:layout_height="78dp"
+        android:layout_width="154dp"
+        android:layout_height="114dp"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
-        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.136" />
 
-    <Button
+    <ImageButton
         android:id="@+id/save"
         android:layout_width="209dp"
-        android:layout_height="43dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.672" />
+        app:layout_constraintVertical_bias="0.753" />
 
-    <Button
-        android:id="@+id/minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="210dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="SAVE"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="0.754" />
 
-    <Button
+    <ImageButton
         android:id="@+id/plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintHorizontal_bias="0.69"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="0.654" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="86dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:shadowColor="#FFFFFF"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="86dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:shadowColor="#FFFFFF"
+        android:text="-"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+    <ImageButton
+        android:id="@+id/minus"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
