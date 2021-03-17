@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,10 +23,11 @@ import java.util.Calendar;
 public class NewBookActivity extends AppCompatActivity {
 
     EditText bookname,bookauthor,bookpage,bookprice;
-    Button add;
+    ImageButton add;
     Book book;
     DatabaseReference reff;
     DatePicker dp;
+    TextView text;
 
     long maxid=0;
     @Override
@@ -38,7 +41,7 @@ public class NewBookActivity extends AppCompatActivity {
         bookprice = findViewById(R.id.bookprice);
         dp = findViewById(R.id.dp2);
         dp.setDescendantFocusability(DatePicker.FOCUS_BLOCK_DESCENDANTS);
-
+        text = findViewById(R.id.textView6);
 
         bookname.setText("");
         bookauthor.setText("");
