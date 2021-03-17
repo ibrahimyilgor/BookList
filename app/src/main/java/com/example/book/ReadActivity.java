@@ -111,6 +111,9 @@ public class ReadActivity extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(page.getText().toString().equals("")){
+                    page.setText("0");
+                }
                 Integer value = Integer.parseInt(page.getText().toString())-1;
                 if(value<0){
                     value=0;
@@ -122,6 +125,9 @@ public class ReadActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(page.getText().toString().equals("")){
+                    page.setText("0");
+                }
                 Integer value = Integer.parseInt(page.getText().toString())+1;
                 page.setText(value.toString());
             }
@@ -148,6 +154,10 @@ public class ReadActivity extends AppCompatActivity {
                     date2= day+String.valueOf(dp.getMonth()+1)+String.valueOf(dp.getYear());
                     datee= day+"."+String.valueOf(dp.getMonth()+1)+"."+String.valueOf(dp.getYear());
                 }
+                if(page.getText().toString().equals("")){
+                    page.setText("0");
+                }
+
                 p.setDate(datee);
                 p.setPage(page.getText().toString());
 

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +25,10 @@ import java.util.Date;
 
 
 public class EditActivity extends AppCompatActivity {
-    TextView t11,t12,t13,t14,t15;
+    TextView t11,t12,t13,t14,t15,updatestring,deletestring;
     EditText bookname,bookauthor,bookpage,bookprice;
     DatePicker dp;
-    Button update,delete;
+    ImageButton update,delete;
 
 
     @Override
@@ -46,6 +47,9 @@ public class EditActivity extends AppCompatActivity {
         t13 = findViewById(R.id.t13);
         t14 = findViewById(R.id.t14);
         t15 = findViewById(R.id.t15);
+
+        updatestring = findViewById(R.id.textView7);
+        deletestring = findViewById(R.id.textView8);
 
         bookname = findViewById(R.id.bookname2);
         bookauthor = findViewById(R.id.bookauthor2);

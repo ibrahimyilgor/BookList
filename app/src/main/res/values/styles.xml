@@ -6,4 +6,5 @@
         <!-- Divider color -->
         <item name="colorControlNormal">@color/white</item>
     </style>
+
 </resources>
