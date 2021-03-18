@@ -34,8 +34,10 @@ public class BooksActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listview);
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.list_item,list);
+
+
+        ArrayList<Book> booklist = new ArrayList<>();
+        BookAdapter adapter = new BookAdapter(this,R.layout.list_item,booklist);
         listView.setAdapter(adapter);
 
         List<String> dynamic = new ArrayList<String>();
@@ -44,9 +46,14 @@ public class BooksActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    list.add("Id: "+snapshot.child("id").getValue().toString()+" Name: "+snapshot.child("name").getValue().toString() + " Author: "+snapshot.child("author").getValue().toString() + " Page: "+snapshot.child("page").getValue().toString() + " Price: "+snapshot.child("price").getValue().toString() + " Date: "+snapshot.child("date").getValue().toString());
+                    Book addn = new Book();
+                    addn.setName(snapshot.child("name").getValue().toString());
+                    addn.setAuthor(snapshot.child("author").getValue().toString());
+                    addn.setPage(snapshot.child("page").getValue().toString());
+                    addn.setPrice(snapshot.child("price").getValue().toString());
+                    addn.setDate(snapshot.child("date").getValue().toString());
+                    booklist.add(addn);
                     dynamic.add(snapshot.child("id").getValue().toString()+":"+snapshot.child("name").getValue().toString() + ":"+snapshot.child("author").getValue().toString() + ":"+snapshot.child("page").getValue().toString() + ":"+snapshot.child("price").getValue().toString() + ":"+snapshot.child("date").getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
