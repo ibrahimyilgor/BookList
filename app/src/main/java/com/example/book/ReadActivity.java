@@ -16,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +35,7 @@ public class ReadActivity extends AppCompatActivity {
     DatePicker dp;
     DatabaseReference reff,reff2,reff3;
     TextView t2,t3,t4;
+    AdView ad2;
 
     Page p;
 
@@ -53,6 +57,14 @@ public class ReadActivity extends AppCompatActivity {
         t2 = findViewById(R.id.textView2);
         t3 = findViewById(R.id.textView3);
         t4 = findViewById(R.id.textView4);
+
+        ad2 = findViewById(R.id.ad2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.SMART_BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
+        ad2.loadAd(adRequest);
 
         p = new Page();
 

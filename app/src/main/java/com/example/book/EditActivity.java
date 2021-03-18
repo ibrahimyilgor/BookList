@@ -16,6 +16,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,7 +32,7 @@ public class EditActivity extends AppCompatActivity {
     EditText bookname,bookauthor,bookpage,bookprice;
     DatePicker dp;
     ImageButton update,delete;
-
+    AdView ad4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,12 @@ public class EditActivity extends AppCompatActivity {
         t13 = findViewById(R.id.t13);
         t14 = findViewById(R.id.t14);
         t15 = findViewById(R.id.t15);
+
+        ad4 = findViewById(R.id.ad4);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.SMART_BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
         updatestring = findViewById(R.id.textView7);
         deletestring = findViewById(R.id.textView8);

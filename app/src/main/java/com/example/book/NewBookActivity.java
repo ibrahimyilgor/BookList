@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +31,7 @@ public class NewBookActivity extends AppCompatActivity {
     DatabaseReference reff;
     DatePicker dp;
     TextView text;
+    AdView ad3;
 
     long maxid=0;
     @Override
@@ -42,6 +46,12 @@ public class NewBookActivity extends AppCompatActivity {
         dp = findViewById(R.id.dp2);
         dp.setDescendantFocusability(DatePicker.FOCUS_BLOCK_DESCENDANTS);
         text = findViewById(R.id.textView6);
+
+        ad3 = findViewById(R.id.ad3);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.SMART_BANNER);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
         bookname.setText("");
         bookauthor.setText("");
