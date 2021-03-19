@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     SignInButton sign_in_button;
     GoogleSignInClient mGoogleSignInClient;
+    ImageView im;
+    TextView tv;
+
     int RC_SIGN_IN = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sign_in_button= findViewById(R.id.sign_in_button);
+        im = findViewById(R.id.imageView);
+        tv = findViewById(R.id.textView5);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()

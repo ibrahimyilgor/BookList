@@ -10,6 +10,10 @@
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#112d4e"
+        android:divider="#FFFFFF"
+        android:dividerHeight="2px"
+
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="179dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

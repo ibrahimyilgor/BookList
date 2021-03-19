@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#112d4e"
+    android:orientation="horizontal"
     android:weightSum="100">
 
 
     <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="TextView1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
         android:id="@+id/textView8"
-        android:maxLines="2"
-        android:layout_weight="20"/>
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="TextView1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
+        android:layout_weight="17"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="TextView1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
         android:id="@+id/textView9"
-        android:maxLines="2"
-        android:layout_weight="20"/>
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="TextView1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
+        android:layout_weight="19"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="TextView1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
         android:id="@+id/textView10"
-        android:maxLines="2"
-        android:layout_weight="20"/>
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="TextView1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
+        android:layout_weight="22"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="TextView1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
         android:id="@+id/textView11"
-        android:maxLines="2"
-        android:layout_weight="20"/>
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="TextView1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/textView12"
+        android:layout_height="70dp"
+        android:layout_weight="22"
+        android:gravity="center"
         android:maxLines="2"
-        android:layout_weight="20"/>
+        android:text="TextView1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="20"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="TextView1"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

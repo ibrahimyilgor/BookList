@@ -46,6 +46,7 @@ public class BooksActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                booklist.clear();
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     Book addn = new Book();
                     addn.setName(snapshot.child("name").getValue().toString());
