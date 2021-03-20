@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     SignInButton sign_in_button;
     GoogleSignInClient mGoogleSignInClient;
     ImageView im;
-    TextView tv;
+    ImageView iv;
 
     int RC_SIGN_IN = 0;
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         sign_in_button= findViewById(R.id.sign_in_button);
         im = findViewById(R.id.imageView);
-        tv = findViewById(R.id.textView5);
+        iv = findViewById(R.id.imageView);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()

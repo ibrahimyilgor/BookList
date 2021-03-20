@@ -11,6 +11,7 @@
         android:id="@+id/stringsignout"
         android:layout_width="161dp"
         android:layout_height="60dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="SIGN OUT"
         android:textColor="#FFFFFF"
@@ -21,20 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.733" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="15dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
 
     <ImageButton
         android:id="@+id/button"
@@ -66,6 +53,7 @@
         android:id="@+id/stringbooks"
         android:layout_width="161dp"
         android:layout_height="60dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="BOOKS"
         android:textColor="#FFFFFF"
@@ -112,6 +100,7 @@
         android:id="@+id/stringread"
         android:layout_width="161dp"
         android:layout_height="60dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="PAGE"
         android:textColor="#FFFFFF"
@@ -153,6 +142,7 @@
         android:id="@+id/stringnewbook"
         android:layout_width="161dp"
         android:layout_height="60dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="NEW BOOK"
         android:textColor="#FFFFFF"
@@ -162,5 +152,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.312" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bangers"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

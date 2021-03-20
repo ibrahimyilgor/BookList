@@ -104,6 +104,14 @@ public class NewBookActivity extends AppCompatActivity {
                 }
                 book.setDate(datee);
 
+                if(!book.getName().toString().contains("~") && !book.getAuthor().toString().contains("~")){
+                    reff.child(String.valueOf(maxid+1)).setValue(book);
+                    Toast.makeText(NewBookActivity.this, "Book added successfully.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(NewBookActivity.this, "Character '~' is not allowed.", Toast.LENGTH_SHORT).show();
+                }
+
                 reff.child(String.valueOf(maxid+1)).setValue(book);
 
                 bookname.setText("");
@@ -113,7 +121,6 @@ public class NewBookActivity extends AppCompatActivity {
                 Calendar now = Calendar.getInstance();
                 dp.init(now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH),null);
 
-                Toast.makeText(NewBookActivity.this, "Book added successfully.", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -55,7 +55,7 @@ public class BooksActivity extends AppCompatActivity {
                     addn.setPrice(snapshot.child("price").getValue().toString());
                     addn.setDate(snapshot.child("date").getValue().toString());
                     booklist.add(addn);
-                    dynamic.add(snapshot.child("id").getValue().toString()+":"+snapshot.child("name").getValue().toString() + ":"+snapshot.child("author").getValue().toString() + ":"+snapshot.child("page").getValue().toString() + ":"+snapshot.child("price").getValue().toString() + ":"+snapshot.child("date").getValue().toString());
+                    dynamic.add(snapshot.child("id").getValue().toString()+"~"+snapshot.child("name").getValue().toString() + "~"+snapshot.child("author").getValue().toString() + "~"+snapshot.child("page").getValue().toString() + "~"+snapshot.child("price").getValue().toString() + "~"+snapshot.child("date").getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
             }

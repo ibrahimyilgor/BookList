@@ -28,9 +28,9 @@ import com.google.android.gms.tasks.Task;
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     ImageButton button,newbook,books,read;
-    TextView textView,stringnewbook,stringbooks,stringread,stringsignout;
+    TextView hellomsg,stringnewbook,stringbooks,stringread,stringsignout;
     AdView ad;
-
+    String id;
     @Override
     public void onBackPressed() {
 
@@ -60,11 +60,12 @@ public class SecondActivity extends AppCompatActivity {
         stringread = findViewById(R.id.stringread);
         stringsignout = findViewById(R.id.stringsignout);
 
-        textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);
         read = findViewById(R.id.read);
         books = findViewById(R.id.books);
         newbook = findViewById(R.id.button2);
+
+        hellomsg = findViewById(R.id.textView);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -78,7 +79,6 @@ public class SecondActivity extends AppCompatActivity {
                 switch (v.getId()) {
                     // ...
                     case R.id.button:
-                        textView.setText("SignedOut");
                         newbook.setEnabled(false);
                         books.setEnabled(false);
                         read.setEnabled(false);
@@ -93,20 +93,20 @@ public class SecondActivity extends AppCompatActivity {
         read.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Read(textView.getText().toString());
+                Read(id);
             }
         });
 
         books.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Books(textView.getText().toString());
+                Books(id);
             }
         });
         newbook.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                NewBook(textView.getText().toString());
+                NewBook(id);
             }
         });
 
@@ -119,7 +119,8 @@ public class SecondActivity extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-            textView.setText(personId);
+            id=(personId);
+            hellomsg.setText("WELCOME TO BOOKLIST\n"+personName);
         }
 
 

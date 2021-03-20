@@ -72,7 +72,7 @@ public class EditActivity extends AppCompatActivity {
         delete = findViewById(R.id.delete);
 
 
-        String splitted[] =info.split(":");
+        String splitted[] =info.split("~");
         bookname.setText(splitted[1]);
         bookauthor.setText(splitted[2]);
         bookpage.setText(splitted[3]);
@@ -120,8 +120,14 @@ public class EditActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        reff.child(splitted[0]).setValue(book);
-                        Toast.makeText(EditActivity.this, "Book updated successfully.", Toast.LENGTH_SHORT).show();
+                        if(!book.getName().toString().contains("~") && !book.getAuthor().toString().contains("~")){
+                            reff.child(splitted[0]).setValue(book);
+                            Toast.makeText(EditActivity.this, "Book updated successfully.", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(EditActivity.this, "Character '~' is not allowed.", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
                 builder.show();
