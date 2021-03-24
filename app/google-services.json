@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:845810395286:android:e7f08f25f46e14f7ee3ab7",
+        "mobilesdk_app_id": "1:845810395286:android:a947413fc3d442b3ee3ab7",
         "android_client_info": {
-          "package_name": "com.example.book"
+          "package_name": "com.booklistiy.book"
         }
       },
       "oauth_client": [
