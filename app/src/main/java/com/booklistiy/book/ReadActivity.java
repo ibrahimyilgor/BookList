@@ -2,6 +2,7 @@ package com.booklistiy.book;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -10,6 +11,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -19,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ReadActivity extends AppCompatActivity {
@@ -28,10 +36,9 @@ public class ReadActivity extends AppCompatActivity {
     DatabaseReference reff,reff2,reff3;
     TextView t2,t3,t4;
     AdView ad2;
-
     Page p;
-
     String defaultpage="0";
+    BarChart barchart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,30 @@ public class ReadActivity extends AppCompatActivity {
         t2 = findViewById(R.id.textView2);
         t3 = findViewById(R.id.textView3);
         t4 = findViewById(R.id.textView4);
+
+        barchart = findViewById(R.id.barchart);
+
+        ArrayList<BarEntry> visitor = new ArrayList<>();
+        visitor.add(new BarEntry(1,10));
+        visitor.add(new BarEntry(2,30));
+        visitor.add(new BarEntry(3,20));
+        visitor.add(new BarEntry(4,80));
+        visitor.add(new BarEntry(5,40));
+        visitor.add(new BarEntry(6,60));
+        visitor.add(new BarEntry(7,50));
+
+        BarDataSet barDataSet = new BarDataSet(visitor,"Visitors");
+        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        barDataSet.setValueTextColor(Color.BLACK);
+        barDataSet.setValueTextSize(16f);
+
+        BarData bardata= new BarData(barDataSet);
+
+        barchart.setFitBars(true);
+        barchart.setData(bardata);
+        barchart.getDescription().setText("Example");
+        barchart.animateY(2000);
+
 
         ad2 = findViewById(R.id.ad2);
         AdRequest adRequest = new AdRequest.Builder().build();
