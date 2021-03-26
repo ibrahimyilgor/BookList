@@ -12,13 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AnotherBarActivity"></activity>
-        <activity android:name=".EditActivity" />
-        <activity android:name=".ReadActivity" />
-        <activity android:name=".NewBookActivity" />
-        <activity android:name=".BooksActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".ReadStats"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".EditActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ReadActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".NewBookActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BooksActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SecondActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
