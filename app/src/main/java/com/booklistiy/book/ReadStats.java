@@ -48,7 +48,7 @@ public class ReadStats extends AppCompatActivity {
         String[] days = {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"};
 
         // Get calendar set to current date and time
-        Calendar c = Calendar.getInstance();
+       /* Calendar c = Calendar.getInstance();
 
         // Set the calendar to Sunday of the current week
         c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
@@ -60,25 +60,83 @@ public class ReadStats extends AppCompatActivity {
             data.add(new BarEntry(i,i*5+1));
             System.out.println(df.format(c.getTime()));
             String s =df.format(c.getTime());
-            c.add(Calendar.DATE, 1);
+            c.add(Calendar.DATE, 1);*/
 
             //visitor.add(new BarEntry(1,(reff.child(df.format(c.getTime())).child("page").getValue().toString())));
            // page.setText(reff.child(df.format(c.getTime()).toString()).child("page").getValue().toString());
 
-            int finalI = i;
+           // int finalI = i;
 
-            reff.child(s).addValueEventListener(new ValueEventListener() {
+            reff.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    Calendar c = Calendar.getInstance();
 
-                    if(dataSnapshot.exists()) {
-                        //Key exists
-                        data.set(finalI , new BarEntry(finalI, (float) Double.parseDouble(dataSnapshot.child("page").getValue().toString())));
-                    } else {
-                        //data.add(new BarEntry(finalI,0));
-                        data.set(finalI , new BarEntry(finalI,0));
+                    // Set the calendar to Sunday of the current week
+                    c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+
+                    // Print dates of the current week starting on Sunday
+                    DateFormat df = new SimpleDateFormat("ddMMyyyy");
+                    int x = 0;
+                    for ( int i = x; i < 7; i++) {
+                        data.add(new BarEntry(i,0));
+                        System.out.println(df.format(c.getTime()));
+                        String s =df.format(c.getTime());
+                        c.add(Calendar.DATE, 1);
+                        int finalI = i;
+                        if (dataSnapshot.hasChild(s)) {
+                            //Key exists
+                            data.set(finalI, new BarEntry(finalI, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
+                        } else {
+                            //data.add(new BarEntry(finalI,0));
+                            data.set(finalI, new BarEntry(finalI, 0));
+                        }
                     }
+                    BarDataSet barDataSet = new BarDataSet(data, "Days of week");
+                    barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+                    barDataSet.setValueTextColor(Color.WHITE);
+                    barDataSet.setValueTextSize(16f);
 
+                    BarData bardata = new BarData(barDataSet);
+
+                    // LIMIT
+    /* int maxCapacity = 60;
+    LimitLine ll = new LimitLine(maxCapacity, "");
+    ll.setLineWidth(4f);
+    ll.setTextSize(12f);
+    ll.setTextColor(Color.RED);
+    barchart.getAxisLeft().addLimitLine(ll);*/
+
+                    barchart.setFitBars(true);
+                    barchart.setData(bardata);
+                    barchart.getDescription().setText("");
+                    barchart.setBackgroundColor(Color.rgb(17, 45, 78));
+                    barchart.animateY(2000);
+                    barchart.getAxisRight().setEnabled(false);
+                    barchart.getAxisLeft().setDrawGridLines(true);
+                    barchart.getAxisLeft().setGridColor(Color.WHITE);
+                    barchart.getAxisLeft().setDrawAxisLine(false);
+                    barchart.getXAxis().setDrawGridLines(false);
+                    barchart.getXAxis().setDrawAxisLine(false);
+                 //   barchart.getAxisRight().setDrawGridLines(false);
+               //     barchart.getAxisRight().setDrawAxisLine(false);
+                    barchart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    barchart.setScaleEnabled(false);
+                    barchart.getAxisLeft().setTextColor(Color.rgb(255, 255, 255));
+                 //   barchart.getAxisRight().setTextColor(Color.rgb(255, 255, 255));
+                    barchart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(days));
+                    barchart.getLegend().setTextColor(Color.rgb(255, 255, 255));
+                    barchart.getXAxis().setTextSize(20);
+                    barchart.getXAxis().setTextColor(Color.rgb(255, 255, 255));
+                    barchart.getLegend().setTextSize(20);
+                    barchart.getXAxis().setYOffset(-20);
+                    barchart.getLegend().setEnabled(false);
+
+                    barchart.setDragEnabled(false);
+                    barchart.setScaleEnabled(false);
+                    barchart.setScaleXEnabled(false);
+                    barchart.setScaleYEnabled(false);
+                    barchart.setPinchZoom(false);
                 }
 
                 @Override
@@ -87,7 +145,7 @@ public class ReadStats extends AppCompatActivity {
                 }
             });
 
-        }
+       /* }*/ //for curly bracket.
 
 /*
         visitor.add(new BarEntry(1,10));
@@ -100,36 +158,5 @@ public class ReadStats extends AppCompatActivity {
 */
 
 
-        BarDataSet barDataSet = new BarDataSet(data, "Days of week");
-        barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
-        barDataSet.setValueTextColor(Color.WHITE);
-        barDataSet.setValueTextSize(16f);
-
-        BarData bardata = new BarData(barDataSet);
-
-            // LIMIT
-    /* int maxCapacity = 60;
-    LimitLine ll = new LimitLine(maxCapacity, "");
-    ll.setLineWidth(4f);
-    ll.setTextSize(12f);
-    ll.setTextColor(Color.RED);
-    barchart.getAxisLeft().addLimitLine(ll);*/
-
-        barchart.setFitBars(true);
-        barchart.setData(bardata);
-        barchart.getDescription().setText("");
-        barchart.setBackgroundColor(Color.rgb(17, 45, 78));
-        barchart.animateY(2000);
-        barchart.getAxisLeft().setDrawGridLines(false);
-        barchart.getXAxis().setDrawGridLines(false);
-        barchart.setScaleEnabled(false);
-        barchart.getAxisLeft().setTextColor(Color.rgb(255, 255, 255));
-        barchart.getAxisRight().setTextColor(Color.rgb(255, 255, 255));
-        barchart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(days));
-        barchart.getLegend().setTextColor(Color.rgb(255, 255, 255));
-        barchart.getXAxis().setTextSize(20);
-        barchart.getXAxis().setTextColor(Color.rgb(255, 255, 255));
-        barchart.getLegend().setTextSize(20);
-        barchart.getXAxis().setYOffset(-20);
     }
 }
