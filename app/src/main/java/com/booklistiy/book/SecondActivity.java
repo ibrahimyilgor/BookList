@@ -29,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     ImageButton button,newbook,books,read;
-    TextView hellomsg,stringnewbook,stringbooks,stringread,stringsignout;
+    TextView hellomsg,stringnewbook,stringbooks,stringread;
     AdView ad;
     String id;
     @Override
@@ -59,9 +59,8 @@ public class SecondActivity extends AppCompatActivity {
         stringnewbook = findViewById(R.id.stringnewbook);
         stringbooks = findViewById(R.id.stringbooks);
         stringread = findViewById(R.id.stringread);
-        stringsignout = findViewById(R.id.stringsignout);
 
-        button = findViewById(R.id.button);
+        button = (ImageButton) findViewById(R.id.button);
         read = findViewById(R.id.read);
         books = findViewById(R.id.books);
         newbook = findViewById(R.id.button2);
@@ -121,7 +120,7 @@ public class SecondActivity extends AppCompatActivity {
             Uri personPhoto = acct.getPhotoUrl();
 
             id=(personId);
-            hellomsg.setText("WELCOME TO BOOKLIST\n"+personName);
+            hellomsg.setText("Hi, "+personName);
         }
 
 

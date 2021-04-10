@@ -1,24 +1,25 @@
 package com.booklistiy.book;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.material.transition.MaterialSharedAxis;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,61 +55,45 @@ public class ReadStats extends AppCompatActivity {
         yearly = findViewById(R.id.yearly);
 
         barchart = findViewById(R.id.barchart);
+
         String personId = getIntent().getStringExtra("personid");
         reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
 
-
+        b4.setOnClickListener(view -> showweek());
+        b7.setOnClickListener(view -> showmonth());
+        b8.setOnClickListener(view -> showyear());
         showweek();
-
-        b4.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                showweek();
-            }
-        });
-        b7.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                showmonth();
-            }
-        });
-        b8.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                showyear();
-            }
-        });
     }
 
     private void showweek() {
-        reff.addListenerForSingleValueEvent(new ValueEventListener() {
+        reff.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SimpleDateFormat")
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 List<BarEntry> data = new ArrayList<>();
 
-                String[] dayss = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
+                String[] dayss = { "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"};
 
                 Calendar c = Calendar.getInstance();
 
                 // Set the calendar to Sunday of the current week
-                c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+                c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
                 // Print dates of the current week starting on Sunday
-                DateFormat df = new SimpleDateFormat("ddMMyyyy");
+                @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 0;
                 for ( int i = x; i < 7; i++) {
                     data.add(new BarEntry(i,0));
                     System.out.println(df.format(c.getTime()));
                     String s =df.format(c.getTime());
                     c.add(Calendar.DATE, 1);
-                    int finalI = i;
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
-                        data.set(finalI, new BarEntry(finalI, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
+                        data.set(i, new BarEntry(i, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
                     } else {
                         //data.add(new BarEntry(finalI,0));
-                        data.set(finalI, new BarEntry(finalI, 0));
+                        data.set(i, new BarEntry(i, 0));
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of week");
@@ -155,16 +140,16 @@ public class ReadStats extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
     }
 
     private void showmonth() {
-        reff.addListenerForSingleValueEvent(new ValueEventListener() {
+        reff.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 List<BarEntry> data = new ArrayList<>();
 
@@ -176,7 +161,7 @@ public class ReadStats extends AppCompatActivity {
                 c.set(Calendar.DAY_OF_MONTH, 1);
 
                 // Print dates of the current week starting on Sunday
-                DateFormat df = new SimpleDateFormat("ddMMyyyy");
+                @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 0;
                 for ( int i = x; i < c.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
                     data.add(new BarEntry(i,0));
@@ -184,13 +169,12 @@ public class ReadStats extends AppCompatActivity {
                    // days.add(Integer.toString(i+1));
                     String s =df.format(c.getTime());
                     c.add(Calendar.DATE, 1);
-                    int finalI = i;
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
-                        data.set(finalI, new BarEntry(finalI, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
+                        data.set(i, new BarEntry(i, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
                     } else {
                         //data.add(new BarEntry(finalI,0));
-                        data.set(finalI, new BarEntry(finalI, 0));
+                        data.set(i, new BarEntry(i, 0));
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of month");
@@ -239,16 +223,16 @@ public class ReadStats extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
     }
 
     private void showyear() {
-        reff.addListenerForSingleValueEvent(new ValueEventListener() {
+        reff.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 List<BarEntry> data = new ArrayList<>();
 
@@ -262,7 +246,7 @@ public class ReadStats extends AppCompatActivity {
                 Integer[] pages = {0,0,0,0,0,0,0,0,0,0,0,0};
 
                 // Print dates of the current week starting on Sunday
-                DateFormat df = new SimpleDateFormat("ddMMyyyy");
+                @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 0;
                 for ( int i = x; i < c.getActualMaximum(Calendar.DAY_OF_YEAR); i++) {
                     //data.add(new BarEntry(i,0));
@@ -271,7 +255,6 @@ public class ReadStats extends AppCompatActivity {
                     String s =df.format(c.getTime());
 
                     c.add(Calendar.DATE, 1);
-                    int finalI = i;
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
                         pages[c.get(Calendar.MONTH)] += (Integer) Integer.parseInt(dataSnapshot.child(s).child("page").getValue().toString());
@@ -330,7 +313,7 @@ public class ReadStats extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.d(TAG, databaseError.getMessage());
             }
         });

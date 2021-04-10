@@ -5,5 +5,12 @@
     <string name="page">Page</string>
     <string name="price">Price</string>
     <string name="date">Date</string>
+    <string name="textview">TextView</string>
+    <string name="books">BOOKS</string>
+    <string name="page_counter">PAGE COUNTER</string>
+    <string name="welcome_to_booklist">Welcome to BookList</string>
+    <string name="whenever_you_read_a_good_book_somewhere_in_the_world_a_door_opens_to_allow_in_more_light_vera_nazarian">Whenever you read a good book, somewhere in the world a door opens to allow in more light. —Vera Nazarian</string>
+    <string name="add_book">ADD BOOK</string>
     <string name="new_book">NEW BOOK</string>
+    <string name="todo">TODO</string>
 </resources>

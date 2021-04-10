@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sign_in_button= findViewById(R.id.sign_in_button);
-        im = findViewById(R.id.imageView);
-        iv = findViewById(R.id.imageView);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
