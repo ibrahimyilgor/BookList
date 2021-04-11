@@ -35,7 +35,7 @@ public class ReadActivity extends AppCompatActivity {
     ImageButton minus,plus,save,stats;
     DatePicker dp;
     DatabaseReference reff,reff2,reff3;
-    TextView t2,t3,t4;
+    TextView t4;
     AdView ad2;
     Page p;
     String defaultpage="0";
@@ -56,8 +56,6 @@ public class ReadActivity extends AppCompatActivity {
 
         dp = findViewById(R.id.dp2);
 
-        t2 = findViewById(R.id.textView2);
-        t3 = findViewById(R.id.textView3);
         t4 = findViewById(R.id.textView4);
 
         ad2 = findViewById(R.id.ad2);

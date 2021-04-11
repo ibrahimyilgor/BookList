@@ -24,13 +24,15 @@ public class BooksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         setContentView(R.layout.activity_books);
 
         personId = getIntent().getStringExtra("personid");
-
         listView = findViewById(R.id.listview);
-
-
 
         ArrayList<Book> booklist = new ArrayList<>();
         BookAdapter adapter = new BookAdapter(this,R.layout.list_item,booklist);
@@ -71,7 +73,7 @@ public class BooksActivity extends AppCompatActivity {
                 // ListView Clicked item index
                 int itemPosition     = position;
                 Object listItem = listView.getItemAtPosition(position);
-               // Toast.makeText(BooksActivity.this, String.valueOf(listItem), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(BooksActivity.this, String.valueOf(listItem), Toast.LENGTH_SHORT).show();
                 Edit(dynamic.get(position));
             }
         });

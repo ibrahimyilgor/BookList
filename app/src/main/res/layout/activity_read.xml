@@ -23,62 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <DatePicker
-        android:id="@+id/dp2"
-        android:layout_width="288dp"
-        android:layout_height="217dp"
-        android:backgroundTint="#FFFFFF"
-        android:calendarTextColor="#7C0A0A"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        android:dayOfWeekBackground="#FFFFFF"
-        android:theme="@style/MyDatePicker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
-
-    <ImageButton
-        android:id="@+id/minus"
-        android:layout_width="85dp"
-        android:layout_height="50dp"
-        android:background="@drawable/shape"
-        android:text="-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
-
-    <ImageButton
-        android:id="@+id/stats"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/stats"
-        android:text="SAVE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
-
-    <ImageButton
-        android:id="@+id/save"
-        android:layout_width="209dp"
-        android:layout_height="50dp"
-        android:background="@drawable/shape"
-        android:text="SAVE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766" />
-
     <EditText
         android:id="@+id/page"
         android:layout_width="154dp"
@@ -99,54 +43,49 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.115" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="86dp"
+    <ImageButton
+        android:id="@+id/stats"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:gravity="center"
-        android:shadowColor="#FFFFFF"
-        android:text="-"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:translationZ="1dp"
+        android:background="@drawable/stats"
+        android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.07" />
 
     <ImageButton
         android:id="@+id/plus"
-        android:layout_width="85dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/plus"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.298" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="86dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:shadowColor="#FFFFFF"
-        android:text="+"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:translationZ="1dp"
+    <DatePicker
+        android:id="@+id/dp2"
+        android:layout_width="295dp"
+        android:layout_height="229dp"
+        android:backgroundTint="#FFFFFF"
+        android:calendarTextColor="#7C0A0A"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:dayOfWeekBackground="#FFFFFF"
+        android:theme="@style/MyDatePicker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <TextView
         android:id="@+id/textView4"
@@ -161,7 +100,33 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766" />
+        app:layout_constraintVertical_bias="0.776" />
+
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="209dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776" />
+
+    <ImageButton
+        android:id="@+id/minus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/minus"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
