@@ -14,24 +14,31 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".ReadStats"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".EditActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ReadActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".NewBookActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".BooksActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".SecondActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

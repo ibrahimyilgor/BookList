@@ -97,7 +97,7 @@ public class ReadStats extends AppCompatActivity {
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of week");
-                barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+                barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
                 barDataSet.setDrawValues(false);
@@ -117,7 +117,7 @@ public class ReadStats extends AppCompatActivity {
                 barchart.getXAxis().setDrawAxisLine(false);
                 //   barchart.getAxisRight().setDrawGridLines(false);
                 //     barchart.getAxisRight().setDrawAxisLine(false);
-                barchart.getXAxis().setPosition(XAxis.XAxisPosition.TOP);
+                barchart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
                 barchart.setScaleEnabled(false);
                 barchart.getAxisLeft().setTextColor(Color.rgb(255, 255, 255));
                 //   barchart.getAxisRight().setTextColor(Color.rgb(255, 255, 255));
@@ -178,7 +178,7 @@ public class ReadStats extends AppCompatActivity {
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of month");
-                barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+                barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
                 barDataSet.setDrawValues(false);
@@ -268,7 +268,7 @@ public class ReadStats extends AppCompatActivity {
                     data.add(new BarEntry(y,pages[y]));
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of month");
-                barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+                barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
                 barDataSet.setDrawValues(false);
@@ -288,7 +288,7 @@ public class ReadStats extends AppCompatActivity {
                 barchart.getXAxis().setDrawAxisLine(false);
                 //   barchart.getAxisRight().setDrawGridLines(false);
                 //     barchart.getAxisRight().setDrawAxisLine(false);
-                barchart.getXAxis().setPosition(XAxis.XAxisPosition.TOP);
+                barchart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
                 barchart.setScaleEnabled(false);
                 barchart.getAxisLeft().setTextColor(Color.rgb(255, 255, 255));
                 //   barchart.getAxisRight().setTextColor(Color.rgb(255, 255, 255));
@@ -309,7 +309,6 @@ public class ReadStats extends AppCompatActivity {
                 barchart.getAxisLeft().setAxisMinimum(0f);
 
                 barchart.getXAxis().setLabelCount(c.getActualMaximum(Calendar.DAY_OF_MONTH));
-
             }
 
             @Override
