@@ -25,11 +25,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     ImageButton button,newbook,books,read;
-    TextView hellomsg,stringnewbook,stringbooks,stringread;
+    TextView hellomsg,stringnewbook,stringbooks,stringread,quote;
     AdView ad;
     String id;
     @Override
@@ -42,6 +45,13 @@ public class SecondActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        ArrayList<String> quotes = new ArrayList<>();
+        quotes.add("“There is no friend as loyal as a book.” \n - Ernest Hemingway ");
+        quotes.add("“A great book should leave you with many experiences, and slightly exhausted at the end. You live several lives while reading.” \n - William Styron");
+        quotes.add("“When I have a little money, I buy books; and if I have any left, I buy food and clothes.”  \n - Desiderius Erasmus Roterodamus ");
+        quotes.add("“Books are my friends, my companions. They make me laugh and cry and find meaning in life.”  \n -  Christopher Paolini ");
+        quotes.add("“Books are like mirrors: if a fool looks in, you cannot expect a genius to look out.”  \n -  J.K. Rowling  ");
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -66,11 +76,16 @@ public class SecondActivity extends AppCompatActivity {
         newbook = findViewById(R.id.button2);
 
         hellomsg = findViewById(R.id.textView);
+        quote = findViewById(R.id.textView13);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
+
+        Random rand = new Random();
+        int n = rand.nextInt(quotes.size());
+        quote.setText(quotes.get(n));
 
         button.setOnClickListener(new View.OnClickListener(){
 

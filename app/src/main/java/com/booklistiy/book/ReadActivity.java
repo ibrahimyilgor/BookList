@@ -174,7 +174,10 @@ public class ReadActivity extends AppCompatActivity {
                 if(page.getText().toString().equals("")){
                     page.setText("0");
                 }
-
+                if(Integer.parseInt(page.getText().toString())==0){
+                    page.setText("0");
+                }
+                page.setText(String.valueOf(Integer.parseInt(page.getText().toString())));
                 p.setDate(datee);
                 p.setPage(page.getText().toString());
 

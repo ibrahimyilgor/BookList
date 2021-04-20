@@ -1,244 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#112d4e"
+    android:orientation="vertical"
+    android:weightSum="88"
     tools:context=".SecondActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#d62828"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/autour_one"
+            android:gravity="left|center_vertical"
+            android:text="@string/welcome_to_booklist"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintHorizontal_bias="0.124"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2"
+            app:layout_constraintVertical_bias="0.643" />
+
+        <ImageButton
+            android:id="@+id/button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:contentDescription="TODO"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2"
+            app:layout_constraintVertical_bias="0.088"
+            app:srcCompat="@drawable/logout" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="left"
+            android:text="@string/textview"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff" />
 
-    <View
-        android:id="@+id/view2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:background="#d62828"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="0dp"
+        android:layout_weight="18">
 
-    <TextView
-        android:id="@+id/stringbooks"
-        android:layout_width="161dp"
-        android:layout_height="80dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="left|center_vertical"
-        android:text="BOOKS"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:translationZ="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/books"
-        app:layout_constraintEnd_toEndOf="@+id/books"
-        app:layout_constraintHorizontal_bias="0.773"
-        app:layout_constraintStart_toStartOf="@+id/books"
-        app:layout_constraintTop_toTopOf="@+id/books"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/autour_one"
+            android:gravity="center"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.609" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/button2"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="140dp"
-        android:background="@drawable/shape"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="@string/new_book"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        android:contentDescription="@string/todo" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18">
 
-    <ImageButton
-        android:id="@+id/books"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/shape"
-        android:text="@string/books"
-        android:translationZ="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/todo"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:srcCompat="@drawable/newlogo" />
 
-    <ImageButton
-        android:id="@+id/read"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/shape"
-        android:text="@string/page_counter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/books" />
+        <ImageButton
+            android:id="@+id/button2"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:contentDescription="@string/todo"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="@string/new_book"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.488" />
 
-    <TextView
-        android:id="@+id/stringread"
-        android:layout_width="161dp"
-        android:layout_height="80dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="left|center_vertical"
-        android:text="PAGE"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/read"
-        app:layout_constraintEnd_toEndOf="@+id/read"
-        app:layout_constraintHorizontal_bias="0.773"
-        app:layout_constraintStart_toStartOf="@+id/read"
-        app:layout_constraintTop_toTopOf="@+id/read"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/stringnewbook"
+            android:layout_width="181dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="left|center_vertical"
+            android:text="@string/add_book"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18">
+
+        <ImageButton
+            android:id="@+id/books"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:text="@string/books"
+            android:translationZ="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/stringbooks"
+            android:layout_width="181dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="left|center_vertical"
+            android:text="BOOKS"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/books"
+            app:layout_constraintEnd_toEndOf="@+id/books"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/books"
+            app:layout_constraintTop_toTopOf="@+id/books"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="@+id/books"
+            app:layout_constraintEnd_toEndOf="@+id/books"
+            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintStart_toStartOf="@+id/books"
+            app:layout_constraintTop_toTopOf="@+id/books"
+            app:layout_constraintVertical_bias="0.533"
+            app:srcCompat="@drawable/notebook" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18">
+
+        <TextView
+            android:id="@+id/stringread"
+            android:layout_width="181dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="left|center_vertical"
+            android:text="PAGE"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/read"
+            app:layout_constraintEnd_toEndOf="@+id/read"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/read"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="TODO"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/read"
+            app:layout_constraintEnd_toEndOf="@+id/read"
+            app:layout_constraintHorizontal_bias="0.095"
+            app:layout_constraintStart_toStartOf="@+id/read"
+            app:layout_constraintTop_toTopOf="@+id/read"
+            app:srcCompat="@drawable/document" />
+
+        <ImageButton
+            android:id="@+id/read"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape"
+            android:text="@string/page_counter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/ad"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_weight="0"
+        android:background="#112d4e"
         android:translationZ="1dp"
         app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
-    <TextView
-        android:id="@+id/stringnewbook"
-        android:layout_width="181dp"
-        android:layout_height="80dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="left|center_vertical"
-        android:text="@string/add_book"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/autour_one"
-        android:gravity="left"
-        android:text="@string/textview"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.735" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="left"
-        android:text="@string/welcome_to_booklist"
-        android:textColor="#ffffff"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.481"
-        app:srcCompat="@drawable/newlogo"
-        android:contentDescription="@string/todo" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/books"
-        app:layout_constraintEnd_toEndOf="@+id/books"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="@+id/books"
-        app:layout_constraintTop_toTopOf="@+id/books"
-        app:srcCompat="@drawable/notebook"
-        android:contentDescription="@string/todo" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/read"
-        app:layout_constraintEnd_toEndOf="@+id/read"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="@+id/read"
-        app:layout_constraintTop_toTopOf="@+id/read"
-        app:srcCompat="@drawable/document"
-        android:contentDescription="TODO" />
-
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:adjustViewBounds="true"
-        android:background="#00FFFFFF"
-        android:contentDescription="TODO"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.533"
-        app:srcCompat="@drawable/logout" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="center"
-        android:text="@string/whenever_you_read_a_good_book_somewhere_in_the_world_a_door_opens_to_allow_in_more_light_vera_nazarian"
-        android:textColor="#ffffff"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/ad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.004" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
