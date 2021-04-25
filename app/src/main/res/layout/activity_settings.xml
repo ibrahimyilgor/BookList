@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#112d4e"
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".SettingsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25">
+
+        <TextView
+            android:id="@+id/languagetext"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="center"
+            android:text="@string/language"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/languagebutton"
+            app:layout_constraintEnd_toEndOf="@+id/languagebutton"
+            app:layout_constraintStart_toStartOf="@+id/languagebutton"
+            app:layout_constraintTop_toTopOf="@+id/languagebutton" />
+
+        <ImageButton
+            android:id="@+id/languagebutton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:contentDescription="TODO"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.496"
+            app:srcCompat="@drawable/shape" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25">
+
+        <ImageButton
+            android:id="@+id/deletedata"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:contentDescription="TODO"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shape" />
+
+        <TextView
+            android:id="@+id/deletedatatext"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="center"
+            android:text="@string/delete_data"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/deletedata"
+            app:layout_constraintEnd_toEndOf="@+id/deletedata"
+            app:layout_constraintStart_toStartOf="@+id/deletedata"
+            app:layout_constraintTop_toTopOf="@+id/deletedata" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25">
+
+        <ImageButton
+            android:id="@+id/deleteaccount"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:contentDescription="TODO"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.496"
+            app:srcCompat="@drawable/shape" />
+
+        <TextView
+            android:id="@+id/deleteaccounttext"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="center"
+            android:text="@string/delete_account"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/deleteaccount"
+            app:layout_constraintEnd_toEndOf="@+id/deleteaccount"
+            app:layout_constraintStart_toStartOf="@+id/deleteaccount"
+            app:layout_constraintTop_toTopOf="@+id/deleteaccount" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25">
+
+        <ImageButton
+            android:id="@+id/signoutbutton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:contentDescription="TODO"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.496"
+            app:srcCompat="@drawable/shape" />
+
+        <TextView
+            android:id="@+id/signouttext"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:fontFamily="@font/autour_one"
+            android:gravity="center"
+            android:text="@string/sign_out"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/signoutbutton"
+            app:layout_constraintEnd_toEndOf="@+id/signoutbutton"
+            app:layout_constraintStart_toStartOf="@+id/signoutbutton"
+            app:layout_constraintTop_toTopOf="@+id/signoutbutton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

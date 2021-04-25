@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -23,21 +24,35 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 
 public class SecondActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
-    ImageButton button,newbook,books,read;
+    ImageButton settings,newbook,books,read;
     TextView hellomsg,stringnewbook,stringbooks,stringread,quote;
     AdView ad;
     String id;
     @Override
     public void onBackPressed() {
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Language lng = Language.getInstance();
+        Locale locale;
+        locale = new Locale(lng.getLang());
+        Locale.setDefault(locale);
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+        recreate();
     }
 
     @Override
@@ -70,7 +85,7 @@ public class SecondActivity extends AppCompatActivity {
         stringbooks = findViewById(R.id.stringbooks);
         stringread = findViewById(R.id.stringread);
 
-        button = (ImageButton) findViewById(R.id.button);
+        settings = (ImageButton) findViewById(R.id.settingsbutton);
         read = findViewById(R.id.read);
         books = findViewById(R.id.books);
         newbook = findViewById(R.id.button2);
@@ -87,13 +102,13 @@ public class SecondActivity extends AppCompatActivity {
         int n = rand.nextInt(quotes.size());
         quote.setText(quotes.get(n));
 
-        button.setOnClickListener(new View.OnClickListener(){
+        /*settings.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
                     // ...
-                    case R.id.button:
+                    case R.id.settingsbutton:
                         newbook.setEnabled(false);
                         books.setEnabled(false);
                         read.setEnabled(false);
@@ -102,6 +117,12 @@ public class SecondActivity extends AppCompatActivity {
                         break;
                     // ...
                 }
+            }
+        });*/
+        settings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Settings(id);
             }
         });
 
@@ -135,7 +156,8 @@ public class SecondActivity extends AppCompatActivity {
             Uri personPhoto = acct.getPhotoUrl();
 
             id=(personId);
-            hellomsg.setText("Hi, "+personName);
+            String mystring = getResources().getString(R.string.hi);
+            hellomsg.setText(mystring + " "+personName);
         }
 
 
@@ -164,6 +186,12 @@ public class SecondActivity extends AppCompatActivity {
 
     private void NewBook(String personId) {
         Intent intent2 = new Intent(this,NewBookActivity.class);
+        intent2.putExtra("personid", personId);
+        startActivityForResult(intent2,0);
+    }
+
+    private void Settings(String personId) {
+        Intent intent2 = new Intent(this,SettingsActivity.class);
         intent2.putExtra("personid", personId);
         startActivityForResult(intent2,0);
     }

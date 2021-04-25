@@ -73,7 +73,15 @@ public class ReadStats extends AppCompatActivity {
 
                 List<BarEntry> data = new ArrayList<>();
 
-                String[] dayss = { "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"};
+                String mo = getResources().getString(R.string.mo);
+                String tu = getResources().getString(R.string.tu);
+                String we = getResources().getString(R.string.we);
+                String th = getResources().getString(R.string.th);
+                String fr = getResources().getString(R.string.fr);
+                String sa = getResources().getString(R.string.sa);
+                String su = getResources().getString(R.string.su);
+
+                String[] dayss = { mo,tu,we,th,fr,sa,su};
 
                 Calendar c = Calendar.getInstance();
 
@@ -236,7 +244,20 @@ public class ReadStats extends AppCompatActivity {
 
                 List<BarEntry> data = new ArrayList<>();
 
-                String[] months = {"J","F","M","A","M","J","J","A","S","O","N","D"};
+                String jan = getResources().getString(R.string.ja);
+                String feb = getResources().getString(R.string.fe);
+                String mar = getResources().getString(R.string.ma);
+                String apr = getResources().getString(R.string.ap);
+                String may = getResources().getString(R.string.ma);
+                String jun = getResources().getString(R.string.ju);
+                String jul = getResources().getString(R.string.jl);
+                String aug = getResources().getString(R.string.au);
+                String sep = getResources().getString(R.string.se);
+                String oct = getResources().getString(R.string.oc);
+                String nov = getResources().getString(R.string.no);
+                String dec = getResources().getString(R.string.de);
+
+                String[] months = {jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec};
 
                 Calendar c = Calendar.getInstance();
 

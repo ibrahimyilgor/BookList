@@ -15,8 +15,8 @@
         android:layout_weight="15">
 
         <View
-            android:id="@+id/view2"
-            android:layout_width="wrap_content"
+            android:id="@+id/topview"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#d62828"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,15 +33,15 @@
             android:text="@string/welcome_to_booklist"
             android:textColor="#ffffff"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/view2"
-            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintBottom_toBottomOf="@+id/topview"
+            app:layout_constraintEnd_toEndOf="@+id/topview"
             app:layout_constraintHorizontal_bias="0.124"
-            app:layout_constraintStart_toStartOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/topview"
+            app:layout_constraintTop_toTopOf="@+id/topview"
             app:layout_constraintVertical_bias="0.643" />
 
         <ImageButton
-            android:id="@+id/button"
+            android:id="@+id/settingsbutton"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="28dp"
@@ -50,12 +50,12 @@
             android:contentDescription="TODO"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="@+id/topview"
             app:layout_constraintHorizontal_bias="0.956"
-            app:layout_constraintStart_toStartOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/topview"
+            app:layout_constraintTop_toTopOf="@+id/topview"
             app:layout_constraintVertical_bias="0.088"
-            app:srcCompat="@drawable/logout" />
+            app:srcCompat="@drawable/settings" />
 
         <TextView
             android:id="@+id/textView"
@@ -64,14 +64,15 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/autour_one"
             android:gravity="left"
-            android:text="@string/textview"
+            android:text="@string/hi"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="@+id/view2"
-            app:layout_constraintHorizontal_bias="0.099"
-            app:layout_constraintStart_toStartOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/topview"
+            app:layout_constraintHorizontal_bias="0.084"
+            app:layout_constraintStart_toStartOf="@+id/topview"
+            app:layout_constraintTop_toTopOf="@+id/topview"
+            app:layout_constraintVertical_bias="0.188" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -182,7 +183,7 @@
             android:layout_height="80dp"
             android:fontFamily="@font/autour_one"
             android:gravity="left|center_vertical"
-            android:text="BOOKS"
+            android:text="@string/books"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:translationZ="1dp"
@@ -219,7 +220,7 @@
             android:layout_height="80dp"
             android:fontFamily="@font/autour_one"
             android:gravity="left|center_vertical"
-            android:text="PAGE"
+            android:text="@string/pageC"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:translationZ="1dp"

@@ -182,7 +182,7 @@ public class ReadActivity extends AppCompatActivity {
                 p.setPage(page.getText().toString());
 
                 reff.child(String.valueOf(date2)).setValue(p);
-                Toast.makeText(ReadActivity.this, "Page number added successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReadActivity.this, getResources().getString(R.string.pagetoast), Toast.LENGTH_SHORT).show();
             }
         });
     }

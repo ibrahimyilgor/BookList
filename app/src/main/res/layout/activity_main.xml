@@ -49,7 +49,7 @@
         android:fontFamily="@font/autour_one"
         android:foregroundGravity="center"
         android:gravity="center"
-        android:text="BookList"
+        android:text="@string/booklist"
         android:textColor="#ffffff"
         android:textSize="50sp" />
 
@@ -85,7 +85,7 @@
             android:layout_height="60dp"
             android:fontFamily="@font/autour_one"
             android:gravity="center"
-            android:text="SIGN IN"
+            android:text="@string/sign_in"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:translationZ="2dp"

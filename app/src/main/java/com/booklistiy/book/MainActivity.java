@@ -3,10 +3,12 @@ package com.booklistiy.book;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -16,6 +18,8 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     SignInButton sign_in_button;
@@ -24,6 +28,22 @@ public class MainActivity extends AppCompatActivity {
     ImageView iv;
 
     int RC_SIGN_IN = 0;
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Language lng = Language.getInstance();
+        Locale locale;
+        locale = new Locale(lng.getLang());
+        Locale.setDefault(locale);
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+
+        recreate();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +68,6 @@ public class MainActivity extends AppCompatActivity {
                }
            }
        });
-
-
-
     }
 
     private void signIn() {
