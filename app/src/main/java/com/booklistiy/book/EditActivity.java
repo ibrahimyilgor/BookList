@@ -105,18 +105,19 @@ public class EditActivity extends AppCompatActivity {
                 }
                 book.setDate(datee);
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditActivity.this);
-                builder.setTitle("Book named "+splitted[1]+ " will be updated.");
-                builder.setMessage("Are you sure you want to update the book?");
-                builder.setNegativeButton("No", null);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                String updateinfo = String.format(getResources().getString(R.string.updateinfo),splitted[1]);
+                builder.setTitle(updateinfo);
+                builder.setMessage(getResources().getString(R.string.areyousureupdate));
+                builder.setNegativeButton(getResources().getString(R.string.no), null);
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(!book.getName().toString().contains("~") && !book.getAuthor().toString().contains("~")){
                             reff.child(splitted[0]).setValue(book);
-                            Toast.makeText(EditActivity.this, "Book updated successfully.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditActivity.this, getResources().getString(R.string.updatesuccess), Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(EditActivity.this, "Character '~' is not allowed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditActivity.this, getResources().getString(R.string.tildesignerror), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -131,15 +132,16 @@ public class EditActivity extends AppCompatActivity {
                 DatabaseReference reff2 = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Books").child(splitted[0]);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditActivity.this);
-                builder.setTitle("Book named "+splitted[1]+ " will be deleted.");
-                builder.setMessage("Are you sure you want to delete the book?");
-                builder.setNegativeButton("No", null);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                String deleteinfo = String.format(getResources().getString(R.string.deleteinfo),splitted[1]);
+                builder.setTitle(deleteinfo);
+                builder.setMessage(getResources().getString(R.string.areyousuredelete));
+                builder.setNegativeButton(getResources().getString(R.string.no), null);
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         reff2.setValue(null);
                         finish();
-                        Toast.makeText(EditActivity.this, "Book deleted successfully.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditActivity.this, getResources().getString(R.string.deletesuccess), Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.show();

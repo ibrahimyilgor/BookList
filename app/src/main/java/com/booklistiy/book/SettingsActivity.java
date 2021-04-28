@@ -20,6 +20,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.core.Context;
 
 import java.util.Locale;
@@ -51,6 +53,47 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        deleteDataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setTitle( getResources().getString(R.string.deletedata));
+                builder.setMessage(getResources().getString(R.string.areyousuredeletedata));
+                builder.setNegativeButton(getResources().getString(R.string.no), null);
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId);
+                        reff.setValue(null);
+                        Toast.makeText(SettingsActivity.this, getResources().getString(R.string.deletedatasuccess), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+            }
+        });
+
+        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setTitle( getResources().getString(R.string.deleteacc));
+                builder.setMessage(getResources().getString(R.string.areyousuredeleteacc));
+                builder.setNegativeButton(getResources().getString(R.string.no), null);
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId);
+                        reff.setValue(null);
+                        final Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        Toast.makeText(SettingsActivity.this, getResources().getString(R.string.deleteaccountsuccess), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+            }
+        });
+
         signOutButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -77,7 +120,8 @@ public class SettingsActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(SettingsActivity.this,"Signed Out Successfully.",Toast.LENGTH_LONG).show();
+                        String signedout = getResources().getString(R.string.signedout);
+                        Toast.makeText(SettingsActivity.this,signedout,Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -87,7 +131,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         final String[] langlist= {"English","Türkçe"};
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(SettingsActivity.this);
-        mBuilder.setTitle("Choose Language");
+        String selectlang = getResources().getString(R.string.selectlang);
+        mBuilder.setTitle(selectlang);
         mBuilder.setSingleChoiceItems(langlist, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

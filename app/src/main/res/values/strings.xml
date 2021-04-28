@@ -28,7 +28,7 @@
     <string name="update">UPDATE</string>
     <string name="add">ADD</string>
     <string name="hi">Hi,</string>
-    <string name="pagetoast">Page number added successfully.,</string>
+    <string name="pagetoast">Page number added successfully</string>
 
     <string name="ja">J</string>
     <string name="fe">F</string>
@@ -40,7 +40,7 @@
     <string name="au">A</string>
     <string name="se">S</string>
     <string name="oc">O</string>
-    <string name="no">N</string>
+    <string name="nv">N</string>
     <string name="de">D</string>
 
     <string name="mo">Mo</string>
@@ -50,4 +50,22 @@
     <string name="fr">Fr</string>
     <string name="sa">Sa</string>
     <string name="su">Su</string>
+    <string name="selectlang">Select a Language</string>
+    <string name="signedout">Signed out successfully</string>
+    <string name="deleteinfo">Book named %1$s will be deleted</string>
+    <string name="areyousuredelete">Are you sure you want to delete the book?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="updateinfo">Book named %1$s will be updated</string>
+    <string name="areyousureupdate">Are you sure you want to update the book?</string>
+    <string name="deletesuccess">Book deleted successfully</string>
+    <string name="updatesuccess">Book updated successfully</string>
+    <string name="tildesignerror">Character \'~\' is not allowed</string>
+    <string name="addsuccess">Book added successfully</string>
+    <string name="deletedatasuccess">Data deleted successfully</string>
+    <string name="deleteaccountsuccess">Account deleted successfully</string>
+    <string name="deleteacc">Delete account</string>
+    <string name="areyousuredeleteacc">Are you sure you want to delete the account? Your data will be deleted permanently</string>
+    <string name="deletedata">Delete data</string>
+    <string name="areyousuredeletedata">Are you sure you want to delete the data? Your data will be deleted permanently</string>
 </resources>

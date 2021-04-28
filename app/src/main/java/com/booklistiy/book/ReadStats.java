@@ -6,12 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -19,7 +16,6 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -254,7 +250,7 @@ public class ReadStats extends AppCompatActivity {
                 String aug = getResources().getString(R.string.au);
                 String sep = getResources().getString(R.string.se);
                 String oct = getResources().getString(R.string.oc);
-                String nov = getResources().getString(R.string.no);
+                String nov = getResources().getString(R.string.nv);
                 String dec = getResources().getString(R.string.de);
 
                 String[] months = {jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec};

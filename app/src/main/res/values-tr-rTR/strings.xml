@@ -29,7 +29,7 @@
     <string name="update">GÜNCELLE</string>
     <string name="add">EKLE</string>
     <string name="hi">Merhaba,</string>
-    <string name="pagetoast">Sayfa sayısı başarıyla eklendi.</string>
+    <string name="pagetoast">Sayfa sayısı başarıyla eklendi</string>
     <string name="ja">O</string>
     <string name="fe">Ş</string>
     <string name="ma">M</string>
@@ -40,7 +40,7 @@
     <string name="au">A</string>
     <string name="se">E</string>
     <string name="oc">E</string>
-    <string name="no">K</string>
+    <string name="nv">K</string>
     <string name="de">A</string>
     <string name="mo">Pt</string>
     <string name="tu">Sa</string>
@@ -49,4 +49,22 @@
     <string name="fr">Cu</string>
     <string name="sa">Ct</string>
     <string name="su">Pz</string>
+    <string name="selectlang">Dil Seçiniz</string>
+    <string name="signedout">Başarıyla çıkış yapıldı</string>
+    <string name="deleteinfo">%1$s isimli kitap silinecek</string>
+    <string name="areyousuredelete">Kitabı silmek istediğinize emin misiniz?</string>
+    <string name="no">Hayır</string>
+    <string name="yes">Evet</string>
+    <string name="updateinfo">%1$s isimli kitap güncellenecek</string>
+    <string name="areyousureupdate">Kitabı güncellemek istediğinize emin misiniz?</string>
+    <string name="deletesuccess">Kitap başarıyla silindi</string>
+    <string name="updatesuccess">Kitap başarıyla güncellendi</string>
+    <string name="tildesignerror">\'~\' işareti kullanılamaz</string>
+    <string name="addsuccess">Kitap başarıyla eklendi</string>
+    <string name="deletedatasuccess">Verileriniz başarıyla silindi</string>
+    <string name="deleteaccountsuccess">Hesabınız başarıyla silindi</string>
+    <string name="deleteacc">Hesabı sil</string>
+    <string name="areyousuredeleteacc">Hesabı silmek istediğinize emin misiniz? Verileriniz tamamen silinecek</string>
+    <string name="deletedata">Veriyi sil</string>
+    <string name="areyousuredeletedata">Veriyi silmek istediğinize emin misiniz? Verileriniz tamamen silinecek</string>
 </resources>

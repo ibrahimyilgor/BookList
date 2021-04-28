@@ -107,13 +107,11 @@ public class NewBookActivity extends AppCompatActivity {
 
                 if(!book.getName().toString().contains("~") && !book.getAuthor().toString().contains("~")){
                     reff.child(String.valueOf(maxid+1)).setValue(book);
-                    Toast.makeText(NewBookActivity.this, "Book added successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewBookActivity.this, getResources().getString(R.string.addsuccess), Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(NewBookActivity.this, "Character '~' is not allowed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewBookActivity.this, getResources().getString(R.string.tildesignerror), Toast.LENGTH_SHORT).show();
                 }
-
-                reff.child(String.valueOf(maxid+1)).setValue(book);
 
                 bookname.setText("");
                 bookauthor.setText("");
