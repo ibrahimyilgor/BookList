@@ -166,19 +166,20 @@ public class ReadStats extends AppCompatActivity {
 
                 // Print dates of the current week starting on Sunday
                 @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
-                int x = 0;
-                for ( int i = x; i < c.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-                    data.add(new BarEntry(i,0));
+                int x = 1;
+                int max_day_of_month = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+                for ( int i = x; i <= max_day_of_month; i++) {
+                    data.add(new BarEntry(i-1,0));
                     System.out.println(df.format(c.getTime()));
                    // days.add(Integer.toString(i+1));
                     String s =df.format(c.getTime());
                     c.add(Calendar.DATE, 1);
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
-                        data.set(i, new BarEntry(i, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
+                        data.set(i-1, new BarEntry(i-1, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
                     } else {
                         //data.add(new BarEntry(finalI,0));
-                        data.set(i, new BarEntry(i, 0));
+                        data.set(i-1, new BarEntry(i-1, 0));
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of month");
@@ -264,14 +265,14 @@ public class ReadStats extends AppCompatActivity {
 
                 // Print dates of the current week starting on Sunday
                 @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
-                int x = 0;
-                for ( int i = x; i < c.getActualMaximum(Calendar.DAY_OF_YEAR); i++) {
+                int x = 1;
+                int max_day_of_year = c.getActualMaximum(Calendar.DAY_OF_YEAR);
+                for ( int i = x; i <= max_day_of_year; i++) {
                     //data.add(new BarEntry(i,0));
-                    System.out.println(df.format(c.getTime()));
+                    //System.out.println(df.format(c.getTime()));
                     // days.add(Integer.toString(i+1));
                     String s =df.format(c.getTime());
 
-                    c.add(Calendar.DATE, 1);
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
                         pages[c.get(Calendar.MONTH)] += (Integer) Integer.parseInt(dataSnapshot.child(s).child("page").getValue().toString());
@@ -280,6 +281,7 @@ public class ReadStats extends AppCompatActivity {
                         //data.add(new BarEntry(finalI,0));
                         //data.set(finalI, new BarEntry(finalI, 0));
                     }
+                    c.add(Calendar.DATE, 1);
                 }
                 for(int y=0; y<12;y++) {
                     data.add(new BarEntry(y,pages[y]));

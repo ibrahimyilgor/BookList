@@ -50,6 +50,15 @@
     <string name="fr">Fr</string>
     <string name="sa">Sa</string>
     <string name="su">Su</string>
+
+    <string-array name="quotes_array">
+        <item>“There is no friend as loyal as a book.” \n- Ernest Hemingway </item>
+        <item>“A great book should leave you with many experiences, and slightly exhausted at the end. You live several lives while reading.” \n- William Styron</item>
+        <item>“When I have a little money, I buy books; and if I have any left, I buy food and clothes.” \n- Desiderius Erasmus Roterodamus</item>
+        <item>“Books are my friends, my companions. They make me laugh and cry and find meaning in life.” \n-  Christopher Paolini </item>
+        <item>“Books are like mirrors: if a fool looks in, you cannot expect a genius to look out.” \n-  J.K. Rowling</item>
+    </string-array>
+
     <string name="selectlang">Select a Language</string>
     <string name="signedout">Signed out successfully</string>
     <string name="deleteinfo">Book named %1$s will be deleted</string>

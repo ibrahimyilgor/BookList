@@ -61,13 +61,15 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        ArrayList<String> quotes = new ArrayList<>();
-        quotes.add("“There is no friend as loyal as a book.” \n - Ernest Hemingway ");
+       String[] quotes;
+
+        quotes=getResources().getStringArray(R.array.quotes_array);
+        /*quotes.add("“There is no friend as loyal as a book.” \n - Ernest Hemingway ");
         quotes.add("“A great book should leave you with many experiences, and slightly exhausted at the end. You live several lives while reading.” \n - William Styron");
         quotes.add("“When I have a little money, I buy books; and if I have any left, I buy food and clothes.”  \n - Desiderius Erasmus Roterodamus ");
         quotes.add("“Books are my friends, my companions. They make me laugh and cry and find meaning in life.”  \n -  Christopher Paolini ");
         quotes.add("“Books are like mirrors: if a fool looks in, you cannot expect a genius to look out.”  \n -  J.K. Rowling  ");
-
+*/
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -99,8 +101,8 @@ public class SecondActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
         Random rand = new Random();
-        int n = rand.nextInt(quotes.size());
-        quote.setText(quotes.get(n));
+        int n = rand.nextInt(quotes.length);
+        quote.setText(quotes[n]);
 
         /*settings.setOnClickListener(new View.OnClickListener(){
 

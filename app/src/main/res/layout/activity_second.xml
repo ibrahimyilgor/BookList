@@ -26,10 +26,11 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/autour_one"
-            android:gravity="left|center_vertical"
+            android:gravity="left"
+            android:paddingStart="15dp"
             android:text="@string/welcome_to_booklist"
             android:textColor="#ffffff"
             android:textSize="12sp"
@@ -59,11 +60,12 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/autour_one"
             android:gravity="left"
+            android:paddingStart="15dp"
             android:text="@string/hi"
             android:textColor="#ffffff"
             android:textSize="16sp"
@@ -264,6 +266,6 @@
         android:background="#112d4e"
         android:translationZ="1dp"
         app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        app:adUnitId="ca-app-pub-4943937138677405/2497004317" />
 
 </LinearLayout>

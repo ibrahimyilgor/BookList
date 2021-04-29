@@ -30,6 +30,15 @@
     <string name="add">EKLE</string>
     <string name="hi">Merhaba,</string>
     <string name="pagetoast">Sayfa sayısı başarıyla eklendi</string>
+
+    <string-array name="quotes_array">
+        <item>“Kitaplar eğitimden çok daha fazlasıdır - sessiz arkadaşlar, sadık arkadaşlar ve yorucu öğretmenlerdir.” \n- Dr T.P. Chia</item>
+        <item>“Kitaplar aynadır. Onlarda sadece içinizde olan şeyleri görürsünüz.” \n- Carlos Zafon </item>
+        <item>“Bugünün gerçek üniversitesi, bir kitaplıktır.” \n- Carlyle </item>
+        <item>“İçinde yaşadığımız küre, iki dünyaya ayrılmıştır: Bildiğimiz coğrafya dünyası ve kitapların dünyası.” \n- Leigh Hunt </item>
+        <item>“İyi bir kitap, düşünen insana yaşam veren kandır.” \n- John Milton </item>
+    </string-array>
+
     <string name="ja">O</string>
     <string name="fe">Ş</string>
     <string name="ma">M</string>
@@ -42,6 +51,7 @@
     <string name="oc">E</string>
     <string name="nv">K</string>
     <string name="de">A</string>
+
     <string name="mo">Pt</string>
     <string name="tu">Sa</string>
     <string name="we">Ça</string>
@@ -49,6 +59,7 @@
     <string name="fr">Cu</string>
     <string name="sa">Ct</string>
     <string name="su">Pz</string>
+
     <string name="selectlang">Dil Seçiniz</string>
     <string name="signedout">Başarıyla çıkış yapıldı</string>
     <string name="deleteinfo">%1$s isimli kitap silinecek</string>
