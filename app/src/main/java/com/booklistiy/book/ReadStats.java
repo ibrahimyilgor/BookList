@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -34,9 +35,12 @@ public class ReadStats extends AppCompatActivity {
     BarChart barchart;
     DatabaseReference reff;
     ImageButton b4,b7,b8;
-    TextView weekly,monthly,yearly;
+    Button less,more;
+    TextView weekly,monthly,yearly,datetext;
 
-    @SuppressLint("ResourceAsColor")
+    String currentchart = "week";
+
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +50,14 @@ public class ReadStats extends AppCompatActivity {
         b7 = findViewById(R.id.button7);
         b8 = findViewById(R.id.button8);
 
+        less = findViewById(R.id.less);
+        more = findViewById(R.id.more);
+
         weekly = findViewById(R.id.weekly);
         monthly = findViewById(R.id.monthly);
         yearly = findViewById(R.id.yearly);
+
+        datetext =  findViewById(R.id.datetext);
 
         barchart = findViewById(R.id.barchart);
 
@@ -58,6 +67,26 @@ public class ReadStats extends AppCompatActivity {
         b4.setOnClickListener(view -> showweek());
         b7.setOnClickListener(view -> showmonth());
         b8.setOnClickListener(view -> showyear());
+
+        less.setOnClickListener(view -> lessfunc());
+        more.setOnClickListener(view -> morefunc());
+
+        Calendar c = Calendar.getInstance();
+
+        String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+        int monthint = c.get(Calendar.MONTH)+1;
+        String month;
+        if(monthint < 10){
+            month = "0"+String.valueOf(monthint);
+        }
+        else{
+            month = String.valueOf(monthint);
+        }
+
+        String year = String.valueOf(c.get(Calendar.YEAR));
+
+        datetext.setText(day+"."+month+"."+year);
+
         showweek();
     }
 
@@ -66,7 +95,7 @@ public class ReadStats extends AppCompatActivity {
             @SuppressLint("SimpleDateFormat")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                currentchart = "week";
                 List<BarEntry> data = new ArrayList<>();
 
                 String mo = getResources().getString(R.string.mo);
@@ -154,7 +183,7 @@ public class ReadStats extends AppCompatActivity {
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                currentchart = "month";
                 List<BarEntry> data = new ArrayList<>();
 
                 String[] days = {};
@@ -238,7 +267,7 @@ public class ReadStats extends AppCompatActivity {
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                currentchart = "year";
                 List<BarEntry> data = new ArrayList<>();
 
                 String jan = getResources().getString(R.string.ja);
@@ -335,5 +364,27 @@ public class ReadStats extends AppCompatActivity {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
+    }
+    private void lessfunc() {
+        Calendar c = Calendar.getInstance();
+
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int monthint = c.get(Calendar.MONTH)+1;
+        int year = c.get(Calendar.YEAR);
+
+        if(currentchart.equals("week")){
+
+        }
+        else if(currentchart.equals("month")){
+
+        }
+        else if(currentchart.equals("year")){
+
+        }
+
+    }
+
+    private void morefunc() {
+
     }
 }

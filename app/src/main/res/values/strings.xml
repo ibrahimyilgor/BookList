@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Book</string>
+    <string name="app_name">BookList</string>
     <string name="name">Name</string>
     <string name="author">Author</string>
     <string name="page">Page</string>
@@ -77,4 +77,6 @@
     <string name="areyousuredeleteacc">Are you sure you want to delete the account? Your data will be deleted permanently</string>
     <string name="deletedata">Delete data</string>
     <string name="areyousuredeletedata">Are you sure you want to delete the data? Your data will be deleted permanently</string>
+    <string name="less"><![CDATA[<]]></string>
+    <string name="more"><![CDATA[>]]></string>
 </resources>

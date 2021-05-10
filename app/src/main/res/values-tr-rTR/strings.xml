@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Book</string>
+    <string name="app_name">BookList</string>
     <string name="name">Ad</string>
     <string name="page">Sayfa</string>
     <string name="author">Yazar</string>

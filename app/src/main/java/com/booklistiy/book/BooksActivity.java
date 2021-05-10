@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BooksActivity extends AppCompatActivity {
@@ -51,7 +52,14 @@ public class BooksActivity extends AppCompatActivity {
                     addn.setAuthor(snapshot.child("author").getValue().toString());
                     addn.setPage(snapshot.child("page").getValue().toString());
                     addn.setPrice(snapshot.child("price").getValue().toString());
-                    addn.setDate(snapshot.child("date").getValue().toString());
+
+                    String date = snapshot.child("date").getValue().toString();
+                    String datefirst = date.substring(0,5);
+                    String datesec = date.substring(6,10);
+
+                    //addn.setDate(snapshot.child("date").getValue().toString());
+                    addn.setDate(datefirst + "\n" + datesec);
+
                     booklist.add(addn);
                     dynamic.add(snapshot.child("id").getValue().toString()+"~"+snapshot.child("name").getValue().toString() + "~"+snapshot.child("author").getValue().toString() + "~"+snapshot.child("page").getValue().toString() + "~"+snapshot.child("price").getValue().toString() + "~"+snapshot.child("date").getValue().toString());
                 }
