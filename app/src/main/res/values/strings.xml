@@ -79,4 +79,5 @@
     <string name="areyousuredeletedata">Are you sure you want to delete the data? Your data will be deleted permanently</string>
     <string name="less"><![CDATA[<]]></string>
     <string name="more"><![CDATA[>]]></string>
+    <string name="monday">Monday</string>
 </resources>

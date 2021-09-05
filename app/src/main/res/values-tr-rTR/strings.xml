@@ -78,4 +78,5 @@
     <string name="areyousuredeleteacc">Hesabı silmek istediğinize emin misiniz? Verileriniz tamamen silinecek</string>
     <string name="deletedata">Veriyi sil</string>
     <string name="areyousuredeletedata">Veriyi silmek istediğinize emin misiniz? Verileriniz tamamen silinecek</string>
+    <string name="monday">Pazartesi</string>
 </resources>

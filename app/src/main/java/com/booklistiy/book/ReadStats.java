@@ -46,8 +46,8 @@ public class ReadStats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_stats);
 
-        b4 = findViewById(R.id.button4);
-        b7 = findViewById(R.id.button7);
+        b4 = findViewById(R.id.button7);
+        b7 = findViewById(R.id.button4);
         b8 = findViewById(R.id.button8);
 
         less = findViewById(R.id.less);
@@ -64,33 +64,22 @@ public class ReadStats extends AppCompatActivity {
         String personId = getIntent().getStringExtra("personid");
         reff = FirebaseDatabase.getInstance().getReference().child("Users").child(personId).child("Pages");
 
-        b4.setOnClickListener(view -> showweek());
-        b7.setOnClickListener(view -> showmonth());
-        b8.setOnClickListener(view -> showyear());
-
-        less.setOnClickListener(view -> lessfunc());
-        more.setOnClickListener(view -> morefunc());
 
         Calendar c = Calendar.getInstance();
 
-        String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
-        int monthint = c.get(Calendar.MONTH)+1;
-        String month;
-        if(monthint < 10){
-            month = "0"+String.valueOf(monthint);
-        }
-        else{
-            month = String.valueOf(monthint);
-        }
+        settime(c);
 
-        String year = String.valueOf(c.get(Calendar.YEAR));
+        b4.setOnClickListener(view -> showweek(c));
+        b7.setOnClickListener(view -> showmonth(c));
+        b8.setOnClickListener(view -> showyear(c));
 
-        datetext.setText(day+"."+month+"."+year);
+        less.setOnClickListener(view -> lessfunc(c));
+        more.setOnClickListener(view -> morefunc(c));
 
-        showweek();
+        showweek(c);
     }
 
-    private void showweek() {
+    private void showweek(Calendar calendar) {
         reff.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SimpleDateFormat")
             @Override
@@ -108,19 +97,16 @@ public class ReadStats extends AppCompatActivity {
 
                 String[] dayss = { mo,tu,we,th,fr,sa,su};
 
-                Calendar c = Calendar.getInstance();
-
-                // Set the calendar to Sunday of the current week
-                c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                calendar.set(calendar.DAY_OF_WEEK, calendar.MONDAY);
 
                 // Print dates of the current week starting on Sunday
                 @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 0;
                 for ( int i = x; i < 7; i++) {
                     data.add(new BarEntry(i,0));
-                    System.out.println(df.format(c.getTime()));
-                    String s =df.format(c.getTime());
-                    c.add(Calendar.DATE, 1);
+                    System.out.println(df.format(calendar.getTime()));
+                    String s =df.format(calendar.getTime());
+                    calendar.add(calendar.DATE, 1);
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
                         data.set(i, new BarEntry(i, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
@@ -177,9 +163,11 @@ public class ReadStats extends AppCompatActivity {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
+        calendar.set(calendar.DAY_OF_WEEK, calendar.MONDAY);
+        settime(calendar);
     }
 
-    private void showmonth() {
+    private void showmonth(Calendar calendar) {
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -188,21 +176,18 @@ public class ReadStats extends AppCompatActivity {
 
                 String[] days = {};
 
-                Calendar c = Calendar.getInstance();
-
-                // Set the calendar to Sunday of the current week
-                c.set(Calendar.DAY_OF_MONTH, 1);
+                calendar.set(calendar.DAY_OF_MONTH, 1);
 
                 // Print dates of the current week starting on Sunday
                 @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 1;
-                int max_day_of_month = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+                int max_day_of_month = calendar.getActualMaximum(calendar.DAY_OF_MONTH);
                 for ( int i = x; i <= max_day_of_month; i++) {
                     data.add(new BarEntry(i-1,0));
-                    System.out.println(df.format(c.getTime()));
+                    System.out.println(df.format(calendar.getTime()));
                    // days.add(Integer.toString(i+1));
-                    String s =df.format(c.getTime());
-                    c.add(Calendar.DATE, 1);
+                    String s =df.format(calendar.getTime());
+                    calendar.add(calendar.DATE, 1);
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
                         data.set(i-1, new BarEntry(i-1, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
@@ -252,7 +237,7 @@ public class ReadStats extends AppCompatActivity {
                 barchart.setPinchZoom(false);
                 barchart.getAxisLeft().setAxisMinimum(0f);
 
-                barchart.getXAxis().setLabelCount(c.getActualMaximum(Calendar.DAY_OF_MONTH));
+                barchart.getXAxis().setLabelCount(calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
 
             }
 
@@ -261,9 +246,11 @@ public class ReadStats extends AppCompatActivity {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
+        calendar.set(calendar.DAY_OF_MONTH, 1);
+        settime(calendar);
     }
 
-    private void showyear() {
+    private void showyear(Calendar calendar) {
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -285,32 +272,26 @@ public class ReadStats extends AppCompatActivity {
 
                 String[] months = {jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec};
 
-                Calendar c = Calendar.getInstance();
-
-                // Set the calendar to Sunday of the current week
-                c.set(Calendar.DAY_OF_YEAR, 1);
+                calendar.set(calendar.DAY_OF_YEAR, 1);
 
                 Integer[] pages = {0,0,0,0,0,0,0,0,0,0,0,0};
 
                 // Print dates of the current week starting on Sunday
                 @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("ddMMyyyy");
                 int x = 1;
-                int max_day_of_year = c.getActualMaximum(Calendar.DAY_OF_YEAR);
+                int max_day_of_year = calendar.getActualMaximum(calendar.DAY_OF_YEAR);
                 for ( int i = x; i <= max_day_of_year; i++) {
-                    //data.add(new BarEntry(i,0));
-                    //System.out.println(df.format(c.getTime()));
-                    // days.add(Integer.toString(i+1));
-                    String s =df.format(c.getTime());
+                    String s =df.format(calendar.getTime());
 
                     if (dataSnapshot.hasChild(s)) {
                         //Key exists
-                        pages[c.get(Calendar.MONTH)] += (Integer) Integer.parseInt(dataSnapshot.child(s).child("page").getValue().toString());
+                        pages[calendar.get(calendar.MONTH)] += (Integer) Integer.parseInt(dataSnapshot.child(s).child("page").getValue().toString());
                        // data.set(finalI, new BarEntry(finalI, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
                     } else {
                         //data.add(new BarEntry(finalI,0));
                         //data.set(finalI, new BarEntry(finalI, 0));
                     }
-                    c.add(Calendar.DATE, 1);
+                    calendar.add(calendar.DATE, 1);
                 }
                 for(int y=0; y<12;y++) {
                     data.add(new BarEntry(y,pages[y]));
@@ -356,7 +337,7 @@ public class ReadStats extends AppCompatActivity {
                 barchart.setPinchZoom(false);
                 barchart.getAxisLeft().setAxisMinimum(0f);
 
-                barchart.getXAxis().setLabelCount(c.getActualMaximum(Calendar.DAY_OF_MONTH));
+                barchart.getXAxis().setLabelCount(calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
             }
 
             @Override
@@ -364,27 +345,59 @@ public class ReadStats extends AppCompatActivity {
                 Log.d(TAG, databaseError.getMessage());
             }
         });
+        calendar.set(calendar.DAY_OF_YEAR, 1);
+        settime(calendar);
     }
-    private void lessfunc() {
-        Calendar c = Calendar.getInstance();
-
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        int monthint = c.get(Calendar.MONTH)+1;
-        int year = c.get(Calendar.YEAR);
-
+    private void lessfunc(Calendar calendar) {
         if(currentchart.equals("week")){
-
+            calendar.add(calendar.DAY_OF_MONTH, -8);
+            showweek(calendar);
         }
         else if(currentchart.equals("month")){
-
+            calendar.add(calendar.MONTH, -2);
+            showmonth(calendar);
         }
         else if(currentchart.equals("year")){
-
+            calendar.add(calendar.YEAR, -2);
+            showyear(calendar);
         }
-
     }
 
-    private void morefunc() {
+    private void morefunc(Calendar calendar) {
+        if(currentchart.equals("week")){
+            calendar.add(calendar.DAY_OF_MONTH, 0);
+            showweek(calendar);
+        }
+        else if(currentchart.equals("month")){
+            calendar.add(calendar.MONTH, 0);
+            showmonth(calendar);
+        }
+        else if(currentchart.equals("year")){
+            calendar.add(calendar.YEAR, 0);
+            showyear(calendar);
+        }
+    }
 
+    private void settime(Calendar calendar){
+        int dayint = calendar.get(calendar.DAY_OF_MONTH);
+        String day;
+        if(dayint < 10){
+            day = "0"+String.valueOf(dayint);
+        }
+        else{
+            day = String.valueOf(dayint);
+        }
+        int monthint = calendar.get(calendar.MONTH)+1;
+        String month;
+        if(monthint < 10){
+            month = "0"+String.valueOf(monthint);
+        }
+        else{
+            month = String.valueOf(monthint);
+        }
+
+        String year = String.valueOf(calendar.get(calendar.YEAR));
+
+        datetext.setText(day+"."+month+"."+year+"\n"+getResources().getString(R.string.monday));
     }
 }
