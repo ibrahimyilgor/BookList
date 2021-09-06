@@ -87,7 +87,7 @@ public class ReadActivity extends AppCompatActivity {
                     day = String.valueOf(dp.getDayOfMonth());
                 }
                 monthOfYear+=1;
-                if(monthOfYear+1<10){
+                if(monthOfYear<10){
                     date= day+"0"+String.valueOf(monthOfYear)+String.valueOf(year);
                 }
                 else{
