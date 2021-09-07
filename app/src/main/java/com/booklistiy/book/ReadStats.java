@@ -16,7 +16,10 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -115,16 +118,28 @@ public class ReadStats extends AppCompatActivity {
                         data.set(i, new BarEntry(i, (float) Double.parseDouble(dataSnapshot.child(s).child("page").getValue().toString())));
                     } else {
                         //data.add(new BarEntry(finalI,0));
-                        data.set(i, new BarEntry(i, 0));
+                        //data.set(i, new BarEntry(i, 0));
                     }
                 }
                 BarDataSet barDataSet = new BarDataSet(data, "Days of week");
                 barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
-                barDataSet.setDrawValues(false);
+                barDataSet.setDrawValues(true);
 
                 BarData bardata = new BarData(barDataSet);
+
+                bardata.setValueFormatter(new ValueFormatter() {  // MAKES VALUES INTEGER
+                    @Override
+                    public String  getFormattedValue(float value) {
+                        if (value == 0){
+                            return "";
+                        }
+                        else{
+                            return String.valueOf((int) value);
+                        }
+                    }
+                });
 
                 barchart.setFitBars(true);
                 barchart.setData(bardata);
@@ -132,6 +147,7 @@ public class ReadStats extends AppCompatActivity {
                 barchart.setBackgroundColor(Color.rgb(17, 45, 78));
                 barchart.animateY(2000);
                 barchart.getAxisRight().setEnabled(false);
+                barchart.getAxisLeft().setEnabled(false);
                 barchart.getAxisLeft().setDrawGridLines(true);
                 barchart.getAxisLeft().setGridColor(Color.WHITE);
                 barchart.getAxisLeft().setDrawAxisLine(false);
@@ -202,9 +218,16 @@ public class ReadStats extends AppCompatActivity {
                 barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
-                barDataSet.setDrawValues(false);
+                barDataSet.setDrawValues(true);
 
                 BarData bardata = new BarData(barDataSet);
+
+                bardata.setValueFormatter(new ValueFormatter() {  // MAKES VALUES INTEGER
+                    @Override
+                    public String  getFormattedValue(float value) {
+                        return String.valueOf((int) value);
+                    }
+                });
 
                 barchart.setFitBars(true);
                 barchart.setData(bardata);
@@ -301,9 +324,21 @@ public class ReadStats extends AppCompatActivity {
                 barDataSet.setColors(Color.rgb(214,40,40));
                 barDataSet.setValueTextColor(Color.WHITE);
                 barDataSet.setValueTextSize(16f);
-                barDataSet.setDrawValues(false);
+                barDataSet.setDrawValues(true);
 
                 BarData bardata = new BarData(barDataSet);
+
+                bardata.setValueFormatter(new ValueFormatter() {  // MAKES VALUES INTEGER
+                    @Override
+                    public String  getFormattedValue(float value) {
+                        if (value == 0){
+                            return "";
+                        }
+                        else{
+                            return String.valueOf((int) value);
+                        }
+                    }
+                });
 
                 barchart.setFitBars(true);
                 barchart.setData(bardata);
