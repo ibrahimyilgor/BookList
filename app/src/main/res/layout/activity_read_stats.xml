@@ -86,7 +86,7 @@
             android:id="@+id/button7"
             android:layout_width="100dp"
             android:layout_height="35dp"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/monthly"
             app:layout_constraintStart_toStartOf="parent"

@@ -86,6 +86,8 @@ public class ReadStats extends AppCompatActivity {
     }
 
     private void showweek(Calendar calendar) {
+        colorChange(0); // Change the color of button
+
         reff.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SimpleDateFormat")
             @Override
@@ -185,6 +187,7 @@ public class ReadStats extends AppCompatActivity {
     }
 
     private void showmonth(Calendar calendar) {
+        colorChange(1); // Change the color of button
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -274,6 +277,7 @@ public class ReadStats extends AppCompatActivity {
     }
 
     private void showyear(Calendar calendar) {
+        colorChange(2); // Change the color of button
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -439,5 +443,23 @@ public class ReadStats extends AppCompatActivity {
         String year = String.valueOf(calendar.get(calendar.YEAR));
 
         datetext.setText(day+"."+month+"."+year);
+    }
+
+    private void colorChange(int number){
+        if(number==0){
+            b4.setBackgroundResource(R.drawable.shape2);
+            b7.setBackgroundResource(R.drawable.shape);
+            b8.setBackgroundResource(R.drawable.shape);
+        }
+        else if(number==1){
+            b4.setBackgroundResource(R.drawable.shape);
+            b7.setBackgroundResource(R.drawable.shape2);
+            b8.setBackgroundResource(R.drawable.shape);
+        }
+        else if(number==2){
+            b4.setBackgroundResource(R.drawable.shape);
+            b7.setBackgroundResource(R.drawable.shape);
+            b8.setBackgroundResource(R.drawable.shape2);
+        }
     }
 }
