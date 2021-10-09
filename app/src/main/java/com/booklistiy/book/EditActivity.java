@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class EditActivity extends AppCompatActivity {
@@ -58,6 +59,7 @@ public class EditActivity extends AppCompatActivity {
 
         dp = findViewById(R.id.dp12);
         dp.setDescendantFocusability(DatePicker.FOCUS_BLOCK_DESCENDANTS);
+        Language lng = Language.getInstance();
 
         update = findViewById(R.id.update);
         delete = findViewById(R.id.delete);

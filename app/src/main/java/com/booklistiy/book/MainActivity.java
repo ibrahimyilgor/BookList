@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.Locale;
 
+import hotchemi.android.rate.AppRate;
+
 public class MainActivity extends AppCompatActivity {
 
     SignInButton sign_in_button;
@@ -48,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AppRate.with(this)
+                .setInstallDays(1)
+                .setLaunchTimes(2)
+                .setRemindInterval(2)
+                .monitor();
+
+        AppRate.showRateDialogIfMeetsConditions(this);
 
         sign_in_button= findViewById(R.id.sign_in_button);
 
